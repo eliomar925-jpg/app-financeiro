@@ -30,7 +30,7 @@ function formatCurrency(value = 0) {
 }
 
 export default function Dashboard() {
-  const { logout } = useAuth();
+  const { logout, userProfile } = useAuth();
   const { lancamentos = [] } = useLancamentos();
 
   const [mesSelecionado, setMesSelecionado] = useState("todos");
@@ -143,6 +143,29 @@ export default function Dashboard() {
   const saldoAcumulado =
     dadosGrafico[dadosGrafico.length - 1]?.saldoAcumulado || 0;
 
+  const infoMeta = useMemo(() => {
+    const metaValor = Number(userProfile?.metaMensal) || 25000;
+    const numMeses = mesesDisponiveis.length || 1;
+    const receitaRef = mesSelecionado === "todos" ? resumo.receitas / numMeses : resumo.receitas;
+    
+    const atingimento = (receitaRef / metaValor) * 100;
+    
+    let texto = "Abaixo da meta";
+    let cor = "#dc2626";
+    if (atingimento >= 100) {
+      texto = atingimento > 100 ? "Acima da meta" : "Meta atingida";
+      cor = "#059669";
+    }
+
+    return {
+      valor: metaValor,
+      receitaRef,
+      atingimento,
+      texto,
+      cor
+    };
+  }, [userProfile?.metaMensal, mesesDisponiveis.length, mesSelecionado, resumo.receitas]);
+
   async function handleLogout() {
     try {
       await logout();
@@ -200,14 +223,14 @@ export default function Dashboard() {
           </div>
 
           <div style={{ ...styles.card, background: "#fff3f3" }}>
-            <div style={styles.cardLabel}>Total Despesas</div>
+            <div style={styles.cardLabel}>Despesas totais</div>
             <div style={{ ...styles.cardValue, color: "#dc2626" }}>
               {formatCurrency(resumo.despesas)}
             </div>
           </div>
 
           <div style={styles.card}>
-            <div style={styles.cardLabel}>Saldo do Mês</div>
+            <div style={styles.cardLabel}>{mesSelecionado === "todos" ? "Saldo do Período" : "Saldo do Mês"}</div>
             <div
               style={{
                 ...styles.cardValue,
@@ -234,11 +257,28 @@ export default function Dashboard() {
         <div style={styles.metaCard}>
           <div style={styles.metaLeft}>
             <div style={styles.cardLabel}>Meta mensal</div>
-            <div style={styles.metaValue}>{formatCurrency(25000)}</div>
+            <div style={styles.metaValue}>{formatCurrency(infoMeta.valor)}</div>
+            <div style={{ color: "#64748b", fontSize: "14px", marginTop: "4px" }}>
+              Receita considerada: {formatCurrency(infoMeta.receitaRef)}
+              {mesSelecionado === "todos" ? " (média mensal)" : ""}
+            </div>
           </div>
-          <div style={styles.metaRight}>Meta não (0%)</div>
+          <div style={{ ...styles.metaRight, color: infoMeta.cor }}>
+            {infoMeta.texto} (
+            {new Intl.NumberFormat("pt-BR", {
+              minimumFractionDigits: 1,
+              maximumFractionDigits: 1,
+            }).format(infoMeta.atingimento)}
+            %)
+          </div>
           <div style={styles.progressTrack}>
-            <div style={styles.progressFill} />
+            <div
+              style={{
+                ...styles.progressFill,
+                width: `${Math.min(infoMeta.atingimento, 100)}%`,
+                background: infoMeta.cor,
+              }}
+            />
           </div>
         </div>
 

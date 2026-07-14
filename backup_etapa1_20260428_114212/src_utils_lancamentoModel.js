@@ -1,4 +1,4 @@
-﻿import {
+import {
   inferCompetencia,
   normalizeCategoria,
   normalizeDate,
@@ -7,16 +7,14 @@
   normalizeStatus,
   normalizeTipo,
 } from "./normalizers";
-import { normalizarCompetencia } from "./competencia";
 
 export function normalizeLancamento(raw = {}, context = {}) {
   const tipo = normalizeTipo(raw.tipo);
-  const dataNormalizada = normalizeDate(raw.data);
-  const competencia = normalizarCompetencia(raw.competencia) || inferCompetencia(dataNormalizada);
-  const data = dataNormalizada || (competencia ? `${competencia}-01` : "");
+  const data = normalizeDate(raw.data);
   const categoria = normalizeCategoria(raw.categoria || raw.grupo || "Geral");
   const grupo = normalizeGrupo(raw.grupo, tipo, categoria);
-  const valor = Math.abs(normalizeMoney(raw.valor));
+  const competencia = raw.competencia || inferCompetencia(data);
+  const valor = normalizeMoney(raw.valor);
   const status = normalizeStatus(raw.status);
 
   return {

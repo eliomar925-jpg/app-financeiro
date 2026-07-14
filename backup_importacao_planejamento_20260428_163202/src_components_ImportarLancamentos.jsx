@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { useLancamentos } from "../hooks/useLancamentos";
 import { salvarLancamento } from "../services/lancamentosService";
 import { buildLancamentoKey } from "../utils/dedupeLancamentos";
-import { montarLancamentosDaAba } from "../utils/importacaoUtils";
+import { escolherAba, montarLancamentos } from "../utils/importacaoUtils";
 
 export default function ImportarLancamentos() {
   const inputRef = useRef(null);
@@ -26,62 +26,34 @@ export default function ImportarLancamentos() {
     try {
       const buffer = await file.arrayBuffer();
       const workbook = XLSX.read(buffer, { type: "array", cellDates: true });
+      const sheetName = escolherAba(workbook);
+      const sheet = workbook.Sheets[sheetName];
+
+      if (!sheet) {
+        alert("NÃ£o foi possÃ­vel ler a planilha.");
+        return;
+      }
+
+      const rows = XLSX.utils.sheet_to_json(sheet, { defval: "", raw: false });
+
+      if (!rows.length) {
+        alert("A planilha estÃ¡ vazia.");
+        return;
+      }
 
       const context = {
         householdId: userProfile?.householdId || null,
         userId: user.uid,
       };
 
-      const todosNovos = [];
-      const todosIgnorados = [];
-      const resumoAbas = [];
-      let linhasLidas = 0;
-
-      workbook.SheetNames.forEach((sheetName) => {
-        const sheet = workbook.Sheets[sheetName];
-        if (!sheet) return;
-
-        const aoa = XLSX.utils.sheet_to_json(sheet, {
-          header: 1,
-          defval: "",
-          raw: false,
-        });
-
-        const resultado = montarLancamentosDaAba(aoa, context, sheetName);
-        linhasLidas += resultado.linhasLidas || 0;
-        todosNovos.push(...resultado.lancamentos);
-        todosIgnorados.push(...resultado.ignorados.map((item) => ({ ...item, aba: sheetName })));
-
-        resumoAbas.push({
-          aba: sheetName,
-          tipo: resultado.tipoLeitura,
-          lidas: resultado.linhasLidas || 0,
-          geradas: resultado.lancamentos.length,
-          ignoradas: resultado.ignorados.length,
-        });
-      });
-
-      if (!todosNovos.length) {
-        const detalhes = resumoAbas
-          .map((item) => `${item.aba}: leitura=${item.tipo}, linhas=${item.lidas}, gerados=${item.geradas}`)
-          .join("\n");
-
-        alert(
-          `Nenhum lancamento valido encontrado.\n\n` +
-          `Linhas lidas: ${linhasLidas}\n` +
-          `Linhas ignoradas: ${todosIgnorados.length}\n\n` +
-          `Detalhes por aba:\n${detalhes}`
-        );
-        return;
-      }
+      const { lancamentos: novos, ignorados } = montarLancamentos(rows, context, sheetName);
 
       const existingKeys = new Set(lancamentos.map((item) => buildLancamentoKey(item)));
       const validos = [];
       let duplicados = 0;
 
-      for (const item of todosNovos) {
+      for (const item of novos) {
         const key = buildLancamentoKey(item);
-
         if (existingKeys.has(key)) {
           duplicados += 1;
           continue;
@@ -91,29 +63,24 @@ export default function ImportarLancamentos() {
         validos.push(item);
       }
 
-      const detalhes = resumoAbas
-        .map((item) => `${item.aba}: leitura=${item.tipo}, linhas=${item.lidas}, gerados=${item.geradas}`)
-        .join("\n");
-
       if (!validos.length) {
         alert(
-          `A planilha foi lida, mas todos os lancamentos validos ja existem no sistema.\n\n` +
-          `Gerados: ${todosNovos.length}\n` +
-          `Duplicados: ${duplicados}\n\n` +
-          `Detalhes por aba:\n${detalhes}`
+          `Nenhum lanÃ§amento vÃ¡lido encontrado.\n\n` +
+          `Linhas lidas: ${rows.length}\n` +
+          `Linhas ignoradas: ${ignorados.length}\n` +
+          `Duplicados: ${duplicados}`
         );
         return;
       }
 
       const resumo =
         `Arquivo: ${file.name}\n` +
-        `Abas lidas: ${workbook.SheetNames.join(", ")}\n` +
-        `Linhas lidas: ${linhasLidas}\n` +
-        `Lancamentos gerados: ${todosNovos.length}\n` +
-        `Validos para importar: ${validos.length}\n` +
-        `Linhas ignoradas: ${todosIgnorados.length}\n` +
+        `Aba usada: ${sheetName}\n` +
+        `Linhas lidas: ${rows.length}\n` +
+        `LanÃ§amentos gerados: ${novos.length}\n` +
+        `VÃ¡lidos para importar: ${validos.length}\n` +
+        `Linhas ignoradas por falta de dados: ${ignorados.length}\n` +
         `Duplicados ignorados: ${duplicados}\n\n` +
-        `Detalhes por aba:\n${detalhes}\n\n` +
         `Deseja continuar?`;
 
       const confirmar = window.confirm(resumo);
@@ -126,14 +93,14 @@ export default function ImportarLancamentos() {
       await recarregar();
 
       alert(
-        `Importacao concluida.\n\n` +
+        `ImportaÃ§Ã£o concluÃ­da.\n\n` +
         `Importados: ${validos.length}\n` +
-        `Linhas ignoradas: ${todosIgnorados.length}\n` +
+        `Linhas ignoradas: ${ignorados.length}\n` +
         `Duplicados ignorados: ${duplicados}`
       );
     } catch (error) {
       console.error("Erro ao importar planilha:", error);
-      alert("Erro ao importar planilha. Verifique o arquivo e tente novamente.");
+      alert("Erro ao importar planilha. Verifique o formato do arquivo e tente novamente.");
     } finally {
       setLoading(false);
       if (inputRef.current) inputRef.current.value = "";

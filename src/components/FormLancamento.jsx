@@ -3,6 +3,7 @@ import { doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import { useAuth } from "../context/AuthContext";
 import { useLancamentos } from "../hooks/useLancamentos";
+import { normalizarCompetencia } from "../utils/competencia";
 
 function getInitialForm(itemEditando) {
   return {
@@ -10,6 +11,7 @@ function getInitialForm(itemEditando) {
     descricao: itemEditando?.descricao || "",
     valor: itemEditando?.valor || "",
     categoria: itemEditando?.categoria || "",
+    competencia: itemEditando?.competencia || "",
     data: itemEditando?.data || "",
     observacao: itemEditando?.observacao || "",
   };
@@ -88,12 +90,24 @@ export default function FormLancamento({
 
     if (!user?.uid) return;
 
+    const competenciaNorm = normalizarCompetencia(form.competencia);
+    if (!competenciaNorm) {
+      alert("Competência inválida. Use o formato Mês/Ano (ex: Abr/26).");
+      return;
+    }
+
+    let dataFinal = form.data;
+    if (!dataFinal) {
+      dataFinal = `${competenciaNorm}-01`;
+    }
+
     const payload = {
       tipo: form.tipo,
       descricao: form.descricao,
       valor: Number(form.valor || 0),
       categoria: categoriaEfetiva,
-      data: form.data,
+      competencia: competenciaNorm,
+      data: dataFinal,
       observacao: form.observacao,
     };
 
@@ -139,14 +153,17 @@ export default function FormLancamento({
         onChange={(e) => updateField("descricao", e.target.value)}
         placeholder="Descrição"
         style={styles.input}
+        required
       />
 
       <input
         type="number"
+        step="0.01"
         value={form.valor}
         onChange={(e) => updateField("valor", e.target.value)}
         placeholder="Valor"
         style={styles.input}
+        required
       />
 
       <select
@@ -161,12 +178,30 @@ export default function FormLancamento({
         ))}
       </select>
 
-      <input
-        type="date"
-        value={form.data}
-        onChange={(e) => updateField("data", e.target.value)}
-        style={styles.input}
-      />
+      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+        <label style={{ fontSize: 14, color: "#64748b" }}>Competência (obrigatório)</label>
+        <input
+          value={form.competencia}
+          onChange={(e) => updateField("competencia", e.target.value)}
+          onBlur={() => {
+            const norm = normalizarCompetencia(form.competencia);
+            if (norm) updateField("competencia", norm);
+          }}
+          placeholder="Ex: Abr/26"
+          style={styles.input}
+          required
+        />
+      </div>
+
+      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+        <label style={{ fontSize: 14, color: "#64748b" }}>Data de pagamento/vencimento — opcional</label>
+        <input
+          type="date"
+          value={form.data}
+          onChange={(e) => updateField("data", e.target.value)}
+          style={styles.input}
+        />
+      </div>
 
       <input
         value={form.observacao}

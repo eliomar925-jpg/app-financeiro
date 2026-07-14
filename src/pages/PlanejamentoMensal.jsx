@@ -41,21 +41,24 @@ export default function PlanejamentoMensal() {
   }, [lancamentosValidos, mesAtivo]);
 
   const resumo = useMemo(() => {
-    let receitas = 0;
-    let despesas = 0;
+    let receitasPrevistas = 0;
+    let despesasPrevistas = 0;
 
     lancamentosMes.forEach((item) => {
       const valor = Number(item?.valor || 0);
       const tipo = String(item?.tipo || "").toLowerCase();
+      const isPlanejamento = item?.source === "planejamento_importado";
 
-      if (tipo === "receita") receitas += valor;
-      else despesas += valor;
+      if (isPlanejamento) {
+        if (tipo === "receita") receitasPrevistas += valor;
+        else despesasPrevistas += valor;
+      }
     });
 
     return {
-      receitas,
-      despesas,
-      saldo: receitas - despesas,
+      receitas: receitasPrevistas,
+      despesas: despesasPrevistas,
+      saldo: receitasPrevistas - despesasPrevistas,
     };
   }, [lancamentosMes]);
 
@@ -66,6 +69,7 @@ export default function PlanejamentoMensal() {
       const categoria = item?.categoria || "Sem categoria";
       const tipo = String(item?.tipo || "").toLowerCase();
       const valor = Number(item?.valor || 0);
+      const isPlanejamento = item?.source === "planejamento_importado";
 
       if (!mapa[categoria]) {
         mapa[categoria] = {
@@ -76,7 +80,11 @@ export default function PlanejamentoMensal() {
         };
       }
 
-      mapa[categoria].realizado += valor;
+      if (isPlanejamento) {
+        mapa[categoria].previsto += valor;
+      } else {
+        mapa[categoria].realizado += valor;
+      }
     });
 
     return Object.values(mapa).sort((a, b) =>
@@ -104,36 +112,36 @@ export default function PlanejamentoMensal() {
           </div>
 
           <select
-  value={mesSelecionado}
-  onChange={(e) => setMesSelecionado(e.target.value)}
-  style={styles.select}
->
-  <option value="">Último mês disponível</option>
-  {mesesDisponiveis.map((mes) => (
-    <option key={mes} value={mes}>
-      {formatarCompetencia(mes)}
-    </option>
-  ))}
-</select>
+            value={mesSelecionado}
+            onChange={(e) => setMesSelecionado(e.target.value)}
+            style={styles.select}
+          >
+            <option value="">Último mês disponível</option>
+            {mesesDisponiveis.map((mes) => (
+              <option key={mes} value={mes}>
+                {formatarCompetencia(mes)}
+              </option>
+            ))}
+          </select>
         </div>
 
         <div style={styles.cards}>
           <div style={{ ...styles.card, background: "#eefaf5" }}>
-            <div style={styles.cardLabel}>Receitas</div>
+            <div style={styles.cardLabel}>Receitas Previstas</div>
             <div style={{ ...styles.cardValue, color: "#059669" }}>
               {formatCurrency(resumo.receitas)}
             </div>
           </div>
 
           <div style={{ ...styles.card, background: "#fff3f3" }}>
-            <div style={styles.cardLabel}>Despesas</div>
+            <div style={styles.cardLabel}>Despesas Previstas</div>
             <div style={{ ...styles.cardValue, color: "#dc2626" }}>
               {formatCurrency(resumo.despesas)}
             </div>
           </div>
 
           <div style={styles.card}>
-            <div style={styles.cardLabel}>Saldo</div>
+            <div style={styles.cardLabel}>Saldo Previsto</div>
             <div
               style={{
                 ...styles.cardValue,
@@ -168,12 +176,14 @@ export default function PlanejamentoMensal() {
                   </tr>
                 ) : (
                   tabelaCategorias.map((item) => {
-                    const diferenca = item.previsto - item.realizado;
+                    const diferenca = item.tipo === "receita"
+                      ? item.realizado - item.previsto
+                      : item.previsto - item.realizado;
 
                     return (
                       <tr key={item.categoria}>
                         <td style={styles.td}>{item.categoria}</td>
-                        <td style={styles.td}>{item.tipo}</td>
+                        <td style={styles.td}>{item.tipo === "receita" ? "Receita" : "Despesa"}</td>
                         <td style={styles.td}>{formatCurrency(item.previsto)}</td>
                         <td style={styles.td}>{formatCurrency(item.realizado)}</td>
                         <td

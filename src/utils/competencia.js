@@ -1,43 +1,73 @@
+const MONTHS = {
+  jan: "01", janeiro: "01", january: "01",
+  fev: "02", fevereiro: "02", feb: "02", february: "02",
+  mar: "03", marco: "03", march: "03",
+  abr: "04", abril: "04", apr: "04", april: "04",
+  mai: "05", maio: "05", may: "05",
+  jun: "06", junho: "06", june: "06",
+  jul: "07", julho: "07", july: "07",
+  ago: "08", agosto: "08", aug: "08", august: "08",
+  set: "09", setembro: "09", sep: "09", september: "09",
+  out: "10", outubro: "10", oct: "10", october: "10",
+  nov: "11", novembro: "11", november: "11",
+  dez: "12", dezembro: "12", dec: "12", december: "12",
+};
+
+function clean(value) {
+  return String(value ?? "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim()
+    .toLowerCase();
+}
+
+function normalizeYear(year) {
+  if (!year) return "";
+  const y = String(year).trim();
+  return y.length === 2 ? `20${y}` : y;
+}
+
 export function normalizarCompetencia(valor) {
-  const raw = String(valor ?? "").trim();
-
-  if (!raw) return "";
-
-  if (/^\d{4}-\d{2}$/.test(raw)) {
-    return raw;
+  if (valor instanceof Date && !Number.isNaN(valor.getTime())) {
+    return valor.toISOString().slice(0, 7);
   }
 
-  const mapaEntrada = {
-    "Abr/26": "2026-04",
-    "Mai/26": "2026-05",
-    "Jun/26": "2026-06",
-    "Jul/26": "2026-07",
-    "Ago/26": "2026-08",
-    "Set/26": "2026-09",
-    "Out/26": "2026-10",
-    "Nov/26": "2026-11",
-    "Dez/26": "2026-12",
+  const rawOriginal = String(valor ?? "").trim();
+  if (!rawOriginal) return "";
 
-    "26 de abril": "2026-04",
-    "26 de maio": "2026-05",
-    "26 de junho": "2026-06",
-    "26/julho": "2026-07",
-    "26 de agosto": "2026-08",
-    "Conjunto/26": "2026-09",
-    "Saída/26": "2026-10",
-    "26/11": "2026-11",
-    "26/12": "2026-12",
-  };
+  if (/^\d{4}-\d{2}$/.test(rawOriginal)) return rawOriginal;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(rawOriginal)) return rawOriginal.slice(0, 7);
 
-  if (mapaEntrada[raw]) return mapaEntrada[raw];
+  const raw = clean(rawOriginal).replace(/[\.\s]/g, "");
 
-  if (/^\d{4}-\d{2}-\d{2}$/.test(raw)) {
-    return raw.slice(0, 7);
+  let match = raw.match(/^(\d{1,2})\/(\d{1,2})\/(\d{2}|\d{4})$/);
+  if (match) {
+    const mm = match[2].padStart(2, "0");
+    return `${normalizeYear(match[3])}-${mm}`;
   }
 
-  if (/^\d{2}\/\d{2}\/\d{4}$/.test(raw)) {
-    const [, mm, yyyy] = raw.split("/");
-    return `${yyyy}-${mm}`;
+  match = raw.match(/^(\d{1,2})\/(\d{2}|\d{4})$/);
+  if (match) {
+    const mm = match[1].padStart(2, "0");
+    return `${normalizeYear(match[2])}-${mm}`;
+  }
+
+  match = raw.match(/^([a-z]+)[\/\-](\d{2}|\d{4})$/);
+  if (match) {
+    const mes = MONTHS[match[1].slice(0, 3)] || MONTHS[match[1]];
+    return mes ? `${normalizeYear(match[2])}-${mes}` : "";
+  }
+
+  match = raw.match(/^([a-z]+)de(\d{4})$/);
+  if (match) {
+    const mes = MONTHS[match[1].slice(0, 3)] || MONTHS[match[1]];
+    return mes ? `${match[2]}-${mes}` : "";
+  }
+
+  match = raw.match(/^(\d{1,2})de([a-z]+)de(\d{4})$/);
+  if (match) {
+    const mes = MONTHS[match[2].slice(0, 3)] || MONTHS[match[2]];
+    return mes ? `${match[3]}-${mes}` : "";
   }
 
   return "";
@@ -45,20 +75,25 @@ export function normalizarCompetencia(valor) {
 
 export function formatarCompetencia(valor) {
   const comp = normalizarCompetencia(valor);
+  if (!comp) return "Sem mes";
 
-  const mapaSaida = {
-    "2026-04": "Abr/26",
-    "2026-05": "Mai/26",
-    "2026-06": "Jun/26",
-    "2026-07": "Jul/26",
-    "2026-08": "Ago/26",
-    "2026-09": "Set/26",
-    "2026-10": "Out/26",
-    "2026-11": "Nov/26",
-    "2026-12": "Dez/26",
+  const [yyyy, mm] = comp.split("-");
+  const labels = {
+    "01": "Jan",
+    "02": "Fev",
+    "03": "Mar",
+    "04": "Abr",
+    "05": "Mai",
+    "06": "Jun",
+    "07": "Jul",
+    "08": "Ago",
+    "09": "Set",
+    "10": "O\u200But",
+    "11": "Nov",
+    "12": "Dez",
   };
 
-  return mapaSaida[comp] || "Sem mês";
+  return `${labels[mm] || mm}/${yyyy.slice(-2)}`;
 }
 
 export function ordenarCompetencias(lista = []) {
