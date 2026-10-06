@@ -26,6 +26,17 @@
 </div>
 </header>
 
+<section class="panel" id="pesquisa">
+<div class="ey">Pesquisa pública</div>
+<div class="geo" style="grid-template-columns:2fr 1fr auto auto">
+<div class="field"><label>Buscar tema, indicador ou conceito</label><input id="q" placeholder="Ex.: desemprego, Ideb, dívida, homicídios..." style="border:1px solid var(--line);background:#0c1727;color:var(--txt);padding:10px 12px;border-radius:10px"></div>
+<div class="field"><label>Tema</label><select id="tema"><option value="">Todos</option><option>Demografia</option><option>Economia</option><option>Trabalho</option><option>Fiscal</option><option>Educação</option><option>Saúde</option><option>Violência</option></select></div>
+<button class="btn primary" id="searchBtn">Pesquisar</button>
+<button class="btn" id="clearBtn">Limpar</button>
+</div>
+<div id="searchResults" class="source-grid" style="margin-top:12px"></div>
+</section>
+
 <section class="panel">
 <div class="ey">Recorte territorial</div>
 <div class="geo">
@@ -48,7 +59,10 @@
 <button class="tab" data-p="social">Social</button>
 <button class="tab" data-p="violencia">Violência</button>
 <button class="tab" data-p="ciclos">Ciclos</button>
+<button class="tab" data-p="catalogo">Catálogo</button>
+<button class="tab" data-p="glossario">Glossário</button>
 <button class="tab" data-p="fontes">Fontes</button>
+<button class="tab" data-p="downloads">Downloads</button>
 <button class="tab" data-p="metodo">Metodologia</button>
 </nav>
 
@@ -167,6 +181,26 @@
 </div></div>
 </section>
 
+<section id="catalogo" class="pane hide">
+<div class="panel"><h2>Catálogo de indicadores</h2><p class="muted">Pesquisa estruturada do portal. Cada item informa tema, valor de referência, período, abrangência territorial e fonte.</p><div id="catalogGrid" class="source-grid"></div></div>
+</section>
+
+<section id="glossario" class="pane hide">
+<div class="panel"><h2>Glossário</h2><div id="glossaryGrid" class="source-grid"></div></div>
+</section>
+
+<section id="downloads" class="pane hide">
+<div class="panel"><h2>Downloads e reutilização</h2>
+<p>Os dados curados do portal podem ser baixados para análise independente. O arquivo JSON contém indicadores, séries e glossário.</p>
+<div class="actions">
+<a class="btn primary" href="./dados.json" download>Baixar dados.json</a>
+<button class="btn" id="downloadCsv">Baixar indicadores.csv</button>
+<button class="btn" id="copyLink">Copiar link da pesquisa</button>
+</div>
+<p class="fine">Os arquivos do portal são uma camada de organização e referência; a fonte primária continua sendo o órgão oficial indicado em cada item.</p>
+</div>
+</section>
+
 <section id="fontes" class="pane hide">
 <div class="panel"><h2>Fontes prioritárias</h2><p>O painel privilegia a fonte primária. Links abaixo servem para conferência independente.</p>
 <div class="source-grid">
@@ -196,8 +230,8 @@
 </section>
 
 <footer class="footer">
-<div class="status"><i></i><b>Versão 1.0 publicada</b></div>
-<p>Nem Direita, Nem Esquerda • Versão 1.0 • Dados oficiais • Metodologia explícita • Sem ranking de governos.</p>
+<div class="status"><i></i><b>Versão 1.1 • portal de pesquisa pública</b></div>
+<p>Nem Direita, Nem Esquerda • Versão 1.1 • Dados oficiais • Metodologia explícita • Sem ranking de governos.</p>
 <div class="footlinks"><a href="https://www.ibge.gov.br/" target="_blank" rel="noopener">IBGE</a><a href="https://www.bcb.gov.br/" target="_blank" rel="noopener">BCB</a><a href="https://www.gov.br/inep/" target="_blank" rel="noopener">Inep</a><a href="https://www.ipea.gov.br/atlasviolencia/" target="_blank" rel="noopener">Atlas da Violência</a></div>
 </footer>
 </main>
@@ -294,5 +328,55 @@ function lineChart(el,labels,values){
 }
 lineChart('unemploymentChart',['2012','2016','2018','2019','2021','2023','2024','2025'],[7.4,11.6,12.1,11.8,14.0,7.7,6.6,5.6]);
 lineChart('idebChart',['2005','2009','2013','2017','2023','2025'],[3.8,4.6,5.2,5.8,6.0,6.3]);
+
+let portalData={indicadores:[],glossario:[]};
+async function loadPortalData(){
+  try{
+    const r=await fetch('./dados.json',{cache:'no-store'});
+    portalData=await r.json();
+    renderCatalog();
+    renderGlossary();
+    const params=new URLSearchParams(location.search);
+    if(params.get('q')){q.value=params.get('q');searchPortal()}
+  }catch(e){
+    searchResults.innerHTML='<div class="source"><b>Catálogo indisponível</b><span>Não foi possível carregar dados.json.</span></div>';
+  }
+}
+function normalize(s){return String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase()}
+function indicatorCard(x){
+  const abrang=(x.abrangencia||[]).join(' • ');
+  return '<a class="source" href="'+(x.url||'#')+'" target="_blank" rel="noopener"><b>'+x.nome+'</b><span>'+x.tema+' • '+x.valor+' • '+x.referencia+'</span><span>'+abrang+' • '+x.fonte+'</span></a>'
+}
+function renderCatalog(){
+  catalogGrid.innerHTML=(portalData.indicadores||[]).map(indicatorCard).join('');
+}
+function renderGlossary(){
+  glossaryGrid.innerHTML=(portalData.glossario||[]).map(x=>'<div class="source"><b>'+x.termo+'</b><span>'+x.definicao+'</span></div>').join('');
+}
+function searchPortal(){
+  const term=normalize(q.value),t=tema.value;
+  const rows=(portalData.indicadores||[]).filter(x=>{
+    const text=normalize([x.nome,x.tema,x.fonte,x.observacao,x.unidade,(x.abrangencia||[]).join(' ')].join(' '));
+    return (!term||text.includes(term))&&(!t||x.tema===t);
+  });
+  searchResults.innerHTML=rows.length?rows.map(indicatorCard).join(''):'<div class="source"><b>Nenhum indicador encontrado</b><span>Tente outro termo ou remova o filtro de tema.</span></div>';
+  const p=new URLSearchParams(location.search);
+  if(q.value)p.set('q',q.value);else p.delete('q');
+  history.replaceState(null,'',location.pathname+(p.toString()?'?'+p.toString():''));
+}
+searchBtn.onclick=searchPortal;
+q.addEventListener('keydown',e=>{if(e.key==='Enter')searchPortal()});
+clearBtn.onclick=()=>{q.value='';tema.value='';searchResults.innerHTML='';history.replaceState(null,'',location.pathname)};
+downloadCsv.onclick=()=>{
+  const rows=[['id','tema','nome','valor','referencia','unidade','abrangencia','fonte','url']];
+  (portalData.indicadores||[]).forEach(x=>rows.push([x.id,x.tema,x.nome,x.valor,x.referencia,x.unidade,(x.abrangencia||[]).join('|'),x.fonte,x.url]));
+  const esc=v=>'"'+String(v??'').replace(/"/g,'""')+'"';
+  const blob=new Blob([rows.map(r=>r.map(esc).join(';')).join('\n')],{type:'text/csv;charset=utf-8;'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='nem-direita-nem-esquerda-indicadores.csv';a.click();URL.revokeObjectURL(a.href);
+};
+copyLink.onclick=async()=>{
+  try{await navigator.clipboard.writeText(location.href);copyLink.textContent='Link copiado';setTimeout(()=>copyLink.textContent='Copiar link da pesquisa',1600)}catch(e){}
+};
+loadPortalData();
 </script>
 </body></html>
