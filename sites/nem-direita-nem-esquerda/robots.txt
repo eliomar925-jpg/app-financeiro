@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://nem-direita-nem-esquerda-brasil-m83fm8bez.vercel.app/sitemap.xml
