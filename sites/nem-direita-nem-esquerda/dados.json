@@ -1,0 +1,297 @@
+{
+  "meta": {
+    "projeto": "Nem Direita, Nem Esquerda",
+    "versao": "1.1",
+    "gerado_em": "2026-10-06",
+    "aviso": "Catálogo público de referência. Séries oficiais podem ser revisadas; consulte a fonte primária indicada em cada indicador."
+  },
+  "indicadores": [
+    {
+      "id": "populacao",
+      "tema": "Demografia",
+      "nome": "População estimada",
+      "valor": "214,2 mi",
+      "referencia": "2026",
+      "unidade": "pessoas",
+      "abrangencia": [
+        "Brasil",
+        "Estado",
+        "Município"
+      ],
+      "fonte": "IBGE/SIDRA",
+      "url": "https://sidra.ibge.gov.br/",
+      "observacao": "O portal tenta consultar a tabela SIDRA 6579 para o território selecionado."
+    },
+    {
+      "id": "divida_bruta_pib",
+      "tema": "Fiscal",
+      "nome": "Dívida Bruta do Governo Geral / PIB",
+      "valor": "automático",
+      "referencia": "último dado disponível",
+      "unidade": "% do PIB",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "Banco Central do Brasil / SGS",
+      "url": "https://www.bcb.gov.br/estatisticas",
+      "serie": "13762"
+    },
+    {
+      "id": "selic_efetiva",
+      "tema": "Fiscal",
+      "nome": "Selic efetiva",
+      "valor": "automático",
+      "referencia": "último dado disponível",
+      "unidade": "% a.a.",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "Banco Central do Brasil / SGS",
+      "url": "https://www.bcb.gov.br/estatisticas",
+      "serie": "4189"
+    },
+    {
+      "id": "desemprego_latest",
+      "tema": "Trabalho",
+      "nome": "Taxa de desemprego",
+      "valor": "5,3%",
+      "referencia": "jun–ago/2026",
+      "unidade": "%",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "IBGE / PNAD Contínua",
+      "url": "https://www.ibge.gov.br/estatisticas/sociais/trabalho.html"
+    },
+    {
+      "id": "ipca_12m",
+      "tema": "Economia",
+      "nome": "IPCA em 12 meses",
+      "valor": "4,22%",
+      "referencia": "ago/2026",
+      "unidade": "%",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "IBGE",
+      "url": "https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos.html"
+    },
+    {
+      "id": "pib_4tri",
+      "tema": "Economia",
+      "nome": "PIB em quatro trimestres",
+      "valor": "1,9%",
+      "referencia": "2º tri/2026",
+      "unidade": "variação real",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "IBGE / Contas Nacionais",
+      "url": "https://www.ibge.gov.br/estatisticas/economicas/contas-nacionais.html"
+    },
+    {
+      "id": "ideb_iniciais",
+      "tema": "Educação",
+      "nome": "Ideb — anos iniciais",
+      "valor": "6,3",
+      "referencia": "2025",
+      "unidade": "índice",
+      "abrangencia": [
+        "Brasil",
+        "Estado",
+        "Município"
+      ],
+      "fonte": "Inep",
+      "url": "https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb"
+    },
+    {
+      "id": "ideb_finais",
+      "tema": "Educação",
+      "nome": "Ideb — anos finais",
+      "valor": "5,3",
+      "referencia": "2025",
+      "unidade": "índice",
+      "abrangencia": [
+        "Brasil",
+        "Estado",
+        "Município"
+      ],
+      "fonte": "Inep",
+      "url": "https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb"
+    },
+    {
+      "id": "ideb_medio",
+      "tema": "Educação",
+      "nome": "Ideb — ensino médio",
+      "valor": "4,5",
+      "referencia": "2025",
+      "unidade": "índice",
+      "abrangencia": [
+        "Brasil",
+        "Estado"
+      ],
+      "fonte": "Inep",
+      "url": "https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb"
+    },
+    {
+      "id": "expectativa_vida",
+      "tema": "Saúde",
+      "nome": "Expectativa de vida",
+      "valor": "76,6",
+      "referencia": "2024",
+      "unidade": "anos",
+      "abrangencia": [
+        "Brasil",
+        "Estado"
+      ],
+      "fonte": "IBGE",
+      "url": "https://www.ibge.gov.br/estatisticas/sociais/populacao.html"
+    },
+    {
+      "id": "mortalidade_infantil",
+      "tema": "Saúde",
+      "nome": "Mortalidade infantil",
+      "valor": "12,3",
+      "referencia": "2024",
+      "unidade": "por mil nascidos vivos",
+      "abrangencia": [
+        "Brasil",
+        "Estado",
+        "Município conforme base"
+      ],
+      "fonte": "IBGE / sistemas oficiais de saúde",
+      "url": "https://datasus.saude.gov.br/"
+    },
+    {
+      "id": "homicidios_registrados",
+      "tema": "Violência",
+      "nome": "Homicídios registrados",
+      "valor": "42.590",
+      "referencia": "2024",
+      "unidade": "óbitos",
+      "abrangencia": [
+        "Brasil",
+        "Estado",
+        "Município conforme base"
+      ],
+      "fonte": "Atlas da Violência / Ipea",
+      "url": "https://www.ipea.gov.br/atlasviolencia/"
+    },
+    {
+      "id": "taxa_homicidios",
+      "tema": "Violência",
+      "nome": "Taxa de homicídios registrada",
+      "valor": "20,1",
+      "referencia": "2024",
+      "unidade": "por 100 mil habitantes",
+      "abrangencia": [
+        "Brasil",
+        "Estado",
+        "Município conforme base"
+      ],
+      "fonte": "Atlas da Violência / Ipea",
+      "url": "https://www.ipea.gov.br/atlasviolencia/"
+    },
+    {
+      "id": "taxa_homicidios_estimada",
+      "tema": "Violência",
+      "nome": "Taxa estimada com homicídios ocultos",
+      "valor": "23,4",
+      "referencia": "2024",
+      "unidade": "por 100 mil habitantes",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "Atlas da Violência / Ipea",
+      "url": "https://www.ipea.gov.br/atlasviolencia/"
+    }
+  ],
+  "series": {
+    "desemprego_anual": [
+      {
+        "ano": 2012,
+        "valor": 7.4
+      },
+      {
+        "ano": 2016,
+        "valor": 11.6
+      },
+      {
+        "ano": 2018,
+        "valor": 12.1
+      },
+      {
+        "ano": 2019,
+        "valor": 11.8
+      },
+      {
+        "ano": 2021,
+        "valor": 14
+      },
+      {
+        "ano": 2023,
+        "valor": 7.7
+      },
+      {
+        "ano": 2024,
+        "valor": 6.6
+      },
+      {
+        "ano": 2025,
+        "valor": 5.6
+      }
+    ],
+    "ideb_iniciais": [
+      {
+        "ano": 2005,
+        "valor": 3.8
+      },
+      {
+        "ano": 2009,
+        "valor": 4.6
+      },
+      {
+        "ano": 2013,
+        "valor": 5.2
+      },
+      {
+        "ano": 2017,
+        "valor": 5.8
+      },
+      {
+        "ano": 2023,
+        "valor": 6
+      },
+      {
+        "ano": 2025,
+        "valor": 6.3
+      }
+    ]
+  },
+  "glossario": [
+    {
+      "termo": "Resultado primário",
+      "definicao": "Receitas menos despesas primárias, antes dos juros da dívida."
+    },
+    {
+      "termo": "Resultado nominal",
+      "definicao": "Resultado fiscal que incorpora o resultado primário e os juros nominais."
+    },
+    {
+      "termo": "Dívida bruta",
+      "definicao": "Estoque bruto de obrigações do governo geral segundo a metodologia do Banco Central."
+    },
+    {
+      "termo": "Ponto percentual",
+      "definicao": "Diferença aritmética entre duas taxas expressas em porcentagem."
+    },
+    {
+      "termo": "Ideb",
+      "definicao": "Índice que combina fluxo escolar e desempenho em avaliações da educação básica."
+    },
+    {
+      "termo": "Taxa por 100 mil",
+      "definicao": "Medida padronizada que permite comparar eventos entre populações de tamanhos diferentes."
+    }
+  ]
+}
