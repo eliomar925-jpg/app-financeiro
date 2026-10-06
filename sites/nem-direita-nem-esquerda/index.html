@@ -99,6 +99,11 @@
 <p class="fine">Para município/estado, a população é buscada na tabela SIDRA 6579 quando o serviço está disponível. Se a fonte não responder, o painel sinaliza “indisponível” em vez de estimar.</p>
 </div>
 
+<div class="panel section"><h2>Comparação territorial</h2>
+<p class="muted">Brasil, estado e município aparecem lado a lado quando o recorte selecionado permite.</p>
+<div id="territoryCompareTable"><p class="m">Selecione um território para comparar.</p></div>
+</div>
+
 <div class="panel section"><h2>Cobertura territorial</h2><table>
 <tr><th>Indicador</th><th>Brasil</th><th>Estado</th><th>Município</th></tr>
 <tr><td>População</td><td>✓</td><td>✓</td><td>✓</td></tr>
@@ -278,6 +283,7 @@ async function states(){
   try{
     const r=await fetch(API+'/estados?orderBy=nome'); const j=await r.json();
     uf.innerHTML='<option value="">Selecione</option>'+j.map(x=>'<option value="'+x.id+'" data-sigla="'+x.sigla+'">'+x.nome+' ('+x.sigla+')</option>').join('');
+    await restoreTerritoryFromUrl();
   }catch(e){uf.innerHTML='<option>IBGE indisponível</option>'}
 }
 states();
@@ -332,6 +338,38 @@ async function applyTerritory(){
     territoryGdp.textContent=fmtMoney(d.gdp.value);
     territoryGdpMeta.textContent=(d.gdp.period||'último ano')+' • IBGE/SIDRA';
   }else{territoryGdp.textContent='indisponível';territoryGdpMeta.textContent='PIB territorial não retornado'}
+  const params=new URLSearchParams(location.search);
+  params.set('nivel',type);
+  if(type!=='br'&&uf.value)params.set('uf',uf.value);else params.delete('uf');
+  if(type==='mun'&&mun.value)params.set('mun',mun.value);else params.delete('mun');
+  history.replaceState(null,'',location.pathname+'?'+params.toString());
+  await renderTerritoryComparison(type,id,s,d);
+}
+async function renderTerritoryComparison(type,id,label,data){
+  const rows=[];
+  const br=type==='br'?data:await fetchTerritory('br','all');
+  rows.push({nome:'Brasil',data:br});
+  if(type!=='br'&&uf.value){
+    const ufd=type==='uf'?data:await fetchTerritory('uf',uf.value);
+    rows.push({nome:uf.options[uf.selectedIndex].text,data:ufd});
+  }
+  if(type==='mun'&&mun.value)rows.push({nome:mun.options[mun.selectedIndex].text,data});
+  territoryCompareTable.innerHTML='<table><tr><th>Território</th><th>População</th><th>PIB</th><th>Referência</th></tr>'+rows.map(r=>{
+    const p=r.data?.population?.value!=null?fmtPop(r.data.population.value):'—';
+    const g=r.data?.gdp?.value!=null?fmtMoney(r.data.gdp.value):'—';
+    const ref=r.data?.gdp?.period||r.data?.population?.period||'último disponível';
+    return '<tr><td>'+r.nome+'</td><td>'+p+'</td><td>'+g+'</td><td>'+ref+'</td></tr>';
+  }).join('')+'</table>';
+}
+async function restoreTerritoryFromUrl(){
+  const p=new URLSearchParams(location.search),lv=p.get('nivel'),u=p.get('uf'),m=p.get('mun');
+  if(!lv||!['br','uf','mun'].includes(lv))return;
+  level.value=lv;level.onchange();
+  if(u&&lv!=='br'){
+    uf.value=u;
+    if(lv==='mun'){await uf.onchange();if(m)mun.value=m}
+  }
+  await applyTerritory();
 }
 document.getElementById('apply').onclick=applyTerritory;
 applyTerritory();
