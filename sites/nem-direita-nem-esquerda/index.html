@@ -29,7 +29,7 @@
 <span class="pill live">Fontes oficiais</span>
 <span class="pill" id="fresh">Atualizando feeds...</span>
 <span class="pill">Sem ranking de governos</span>
-<span class="pill">Versão 1.4</span>
+<span class="pill">Versão 1.5</span>
 <span class="pill" id="scope">Brasil</span>
 </div>
 </header>
@@ -58,7 +58,7 @@
 </section>
 
 <nav class="tabs">
-<button class="tab on" data-p="geral">Visão geral</button>
+<button class="tab on" data-p="geral">Visão geral</button>\n<button class="tab" data-p="macro">Macro Brasil</button>
 <button class="tab" data-p="economia">Economia</button>
 <button class="tab" data-p="trabalho">Trabalho</button>
 <button class="tab" data-p="fiscal">Fiscal</button>
@@ -115,6 +115,35 @@
 <tr><td>Violência</td><td>✓</td><td>✓</td><td>✓ conforme base</td></tr>
 <tr><td>Fiscal</td><td>Setor público</td><td>Finanças estaduais</td><td>Finanças municipais</td></tr>
 </table></div>
+</section>
+
+<section id="macro" class="pane hide">
+<div class="panel"><div class="ey">Painel macroeconômico nacional</div><h2>Brasil — principais indicadores macro</h2><p class="muted">Leitura integrada de atividade, preços, juros, mercado de trabalho, câmbio, fiscal e setor externo. Os indicadores automáticos abaixo usam APIs públicas do IBGE e do Banco Central.</p></div>
+<div class="grid">
+<div class="card"><h3>PIB • trimestre</h3><div class="v" id="macroPibQoq">—</div><div class="m" id="macroPibQoqMeta">IBGE/SIDRA</div></div>
+<div class="card"><h3>IPCA • 12 meses</h3><div class="v" id="macroIpca">—</div><div class="m" id="macroIpcaMeta">IBGE/SIDRA</div></div>
+<div class="card"><h3>Desemprego</h3><div class="v" id="macroUnemp">—</div><div class="m" id="macroUnempMeta">IBGE/SIDRA</div></div>
+<div class="card"><h3>Selic efetiva</h3><div class="v" id="macroSelic">—</div><div class="m" id="macroSelicMeta">BCB/SGS</div></div>
+<div class="card"><h3>Dólar • venda</h3><div class="v" id="macroFx">—</div><div class="m" id="macroFxMeta">BCB/SGS</div></div>
+<div class="card"><h3>Reservas internacionais</h3><div class="v" id="macroReserves">—</div><div class="m" id="macroReservesMeta">BCB/SGS</div></div>
+<div class="card"><h3>Dívida bruta / PIB</h3><div class="v" id="macroDebt">—</div><div class="m" id="macroDebtMeta">BCB/SGS</div></div>
+<div class="card"><h3>Primário • 12 meses / PIB</h3><div class="v" id="macroPrimary">—</div><div class="m" id="macroPrimaryMeta">BCB/SGS</div></div>
+<div class="card"><h3>Juros nominais • 12 meses / PIB</h3><div class="v" id="macroInterest">—</div><div class="m" id="macroInterestMeta">BCB/SGS</div></div>
+<div class="card"><h3>Resultado nominal • 12 meses / PIB</h3><div class="v" id="macroNominal">—</div><div class="m" id="macroNominalMeta">BCB/SGS</div></div>
+<div class="card"><h3>Conta corrente • 12 meses / PIB</h3><div class="v" id="macroCurrentAccount">—</div><div class="m" id="macroCurrentAccountMeta">BCB/SGS</div></div>
+<div class="card"><h3>Leitura integrada</h3><div class="v small" id="macroRead">Atualizando...</div><div class="m">Descrição factual; não é nota nem ranking.</div></div>
+</div>
+<div class="panel">
+<h2>Como interpretar o quadro macro</h2>
+<table>
+<tr><th>Bloco</th><th>Indicadores</th><th>Pergunta respondida</th></tr>
+<tr><td>Atividade</td><td>PIB e emprego</td><td>A economia está expandindo e absorvendo mão de obra?</td></tr>
+<tr><td>Preços e juros</td><td>IPCA e Selic</td><td>Qual a pressão de preços e a resposta monetária?</td></tr>
+<tr><td>Fiscal</td><td>Primário, juros, nominal e dívida</td><td>Como evoluem o fluxo fiscal e o estoque de dívida?</td></tr>
+<tr><td>Externo</td><td>Câmbio, conta corrente e reservas</td><td>Qual a posição externa e a capacidade de absorver choques?</td></tr>
+</table>
+<p class="fine">Resultado primário, juros e resultado nominal não são a mesma medida. Um superávit primário pode coexistir com déficit nominal se os juros forem maiores que o resultado primário.</p>
+</div>
 </section>
 
 <section id="economia" class="pane hide">
@@ -243,6 +272,12 @@
 <table><tr><th>Endpoint</th><th>Uso</th></tr>
 <tr><td><code>/api/bcb?serie=divida</code></td><td>Dívida bruta/PIB normalizada do BCB</td></tr>
 <tr><td><code>/api/bcb?serie=selic</code></td><td>Selic efetiva normalizada do BCB</td></tr>
+<tr><td><code>/api/bcb?serie=cambio</code></td><td>Câmbio dólar/venda</td></tr>
+<tr><td><code>/api/bcb?serie=reservas</code></td><td>Reservas internacionais</td></tr>
+<tr><td><code>/api/bcb?serie=primario_pib</code></td><td>Resultado primário acumulado em 12 meses / PIB</td></tr>
+<tr><td><code>/api/bcb?serie=juros_pib</code></td><td>Juros nominais acumulados em 12 meses / PIB</td></tr>
+<tr><td><code>/api/bcb?serie=nominal_pib</code></td><td>Resultado nominal acumulado em 12 meses / PIB</td></tr>
+<tr><td><code>/api/bcb?serie=conta_corrente_pib</code></td><td>Conta corrente acumulada em 12 meses / PIB</td></tr>
 <tr><td><code>/api/territorio?level=mun&id=2927408</code></td><td>Perfil territorial via IBGE/SIDRA</td></tr>
 <tr><td><code>/api/siconfi?endpoint=entes</code></td><td>Cadastro público de entes do Siconfi/Tesouro</td></tr>
 <tr><td><code>/api/ibge?serie=desemprego</code></td><td>Taxa de desemprego mais recente via SIDRA</td></tr>
@@ -266,8 +301,8 @@
 </section>
 
 <footer class="footer">
-<div class="status"><i></i><b>Versão 1.4 • portal de pesquisa pública</b></div>
-<p>Nem Direita, Nem Esquerda • Versão 1.4 • Dados oficiais • Metodologia explícita • Sem ranking de governos.</p>
+<div class="status"><i></i><b>Versão 1.5 • portal de pesquisa pública</b></div>
+<p>Nem Direita, Nem Esquerda • Versão 1.5 • Dados oficiais • Metodologia explícita • Sem ranking de governos.</p>
 <div class="footlinks"><a href="./metodologia.html">Metodologia</a><a href="./api-docs.html">API</a><a href="./fontes.json">Catálogo de fontes</a><a href="https://www.ibge.gov.br/" target="_blank" rel="noopener">IBGE</a><a href="https://www.bcb.gov.br/" target="_blank" rel="noopener">BCB</a><a href="https://www.gov.br/inep/" target="_blank" rel="noopener">Inep</a><a href="https://www.ipea.gov.br/atlasviolencia/" target="_blank" rel="noopener">Atlas da Violência</a></div>
 </footer>
 </main>
@@ -438,6 +473,41 @@ async function loadIBGE(){
   }catch(e){}
 }
 loadIBGE();setInterval(loadIBGE,900000);
+
+async function loadMacro(){
+  const bcb=async k=>{const r=await fetch('./api/bcb?serie='+k);if(!r.ok)throw new Error(k);return r.json()};
+  const ibge=async k=>{const r=await fetch('./api/ibge?serie='+k);if(!r.ok)throw new Error(k);return r.json()};
+  const pct=(v,d=1)=>Number(v).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d})+'%';
+  const signed=(v,d=1)=>{const n=Number(v);return (n>0?'+':'')+n.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d})+'%'};
+  const set=(id,val,meta)=>{const el=document.getElementById(id),m=document.getElementById(id+'Meta');if(el)el.textContent=val;if(m)m.textContent=meta};
+  const values={};
+  try{const d=await ibge('pib_trimestre');values.pib=Number(d.valor);set('macroPibQoq',signed(d.valor),'IBGE/SIDRA • '+(d.periodo||'último trimestre'))}catch(e){}
+  try{const d=await ibge('ipca12m');values.ipca=Number(d.valor);set('macroIpca',pct(d.valor,2),'IBGE/SIDRA • '+(d.periodo||'último mês'))}catch(e){}
+  try{const d=await ibge('desemprego');values.unemp=Number(d.valor);set('macroUnemp',pct(d.valor),'IBGE/SIDRA • '+(d.periodo||'último período'))}catch(e){}
+  const specs=[
+    ['selic','macroSelic',v=>pct(v,2)],
+    ['cambio','macroFx',v=>'R$ '+Number(String(v).replace(',','.')).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})],
+    ['reservas','macroReserves',v=>'US$ '+(Number(String(v).replace(',','.'))/1000).toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+' bi'],
+    ['divida','macroDebt',v=>pct(String(v).replace(',','.'),1)],
+    ['primario_pib','macroPrimary',v=>pct(String(v).replace(',','.'),2)],
+    ['juros_pib','macroInterest',v=>pct(String(v).replace(',','.'),2)],
+    ['nominal_pib','macroNominal',v=>pct(String(v).replace(',','.'),2)],
+    ['conta_corrente_pib','macroCurrentAccount',v=>pct(String(v).replace(',','.'),2)]
+  ];
+  for(const [k,id,fmt] of specs){
+    try{
+      const d=await bcb(k); values[k]=Number(String(d.valor).replace(',','.')); set(id,fmt(d.valor),'BCB/SGS • '+(d.data||'último dado'));
+    }catch(e){}
+  }
+  const txt=[];
+  if(Number.isFinite(values.pib))txt.push(values.pib>=0?'atividade em expansão trimestral':'atividade em contração trimestral');
+  if(Number.isFinite(values.unemp))txt.push('desemprego em '+values.unemp.toLocaleString('pt-BR',{maximumFractionDigits:1})+'%');
+  if(Number.isFinite(values.ipca))txt.push('inflação em 12 meses de '+values.ipca.toLocaleString('pt-BR',{maximumFractionDigits:2})+'%');
+  if(Number.isFinite(values.divida))txt.push('dívida bruta em '+values.divida.toLocaleString('pt-BR',{maximumFractionDigits:1})+'% do PIB');
+  if(Number.isFinite(values.conta_corrente_pib))txt.push('conta corrente em '+values.conta_corrente_pib.toLocaleString('pt-BR',{maximumFractionDigits:2})+'% do PIB');
+  const el=document.getElementById('macroRead');if(el)el.textContent=txt.length?txt.join(' • '):'Dados macro temporariamente indisponíveis';
+}
+loadMacro();setInterval(loadMacro,900000);
 
 function lineChart(el,labels,values){
   const W=720,H=180,p=28,min=Math.min(...values),max=Math.max(...values),range=(max-min)||1;
