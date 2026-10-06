@@ -1,4 +1,4 @@
-const SERIES={divida:13762,selic:4189};
+const SERIES={divida:13762,selic:4189,cambio:1,reservas:13621,primario_pib:5793,nominal_pib:5727,juros_pib:5760,conta_corrente_pib:23079};
 export default async function handler(req,res){
   const key=String(req.query.serie||'');
   const code=SERIES[key];
