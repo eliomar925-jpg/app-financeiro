@@ -1,0 +1,10 @@
+{
+  "name": "Nem Direita, Nem Esquerda — Brasil em Dados",
+  "short_name": "Brasil em Dados",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#07101c",
+  "theme_color": "#08111f",
+  "lang": "pt-BR",
+  "description": "Portal apartidário de pesquisa com indicadores oficiais do Brasil, estados e municípios."
+}
