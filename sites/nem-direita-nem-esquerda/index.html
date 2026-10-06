@@ -15,48 +15,47 @@
 <style>
 :root{--bg:#07101c;--bg2:#0b1626;--card:#101c2e;--card2:#0d1727;--line:#263752;--txt:#f4f7fb;--mut:#9fb0c8;--acc:#e8d79b;--ok:#99d8ae;--warn:#e4bb79;--danger:#e8a3a3;--shadow:0 18px 55px rgba(0,0,0,.28)}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% -10%,rgba(232,215,155,.09),transparent 34%),linear-gradient(180deg,var(--bg),var(--bg2));color:var(--txt);font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif}.wrap{max-width:1220px;margin:auto;padding:28px}.ey{color:var(--acc);font-size:11px;font-weight:850;letter-spacing:.16em;text-transform:uppercase}.top{padding:18px 0 4px}h1{font-size:clamp(44px,7vw,78px);line-height:.94;letter-spacing:-.055em;margin:10px 0 16px}.lead{font-size:18px;color:var(--mut);max-width:920px;margin:0 0 18px}.pills,.tabs,.compare,.actions{display:flex;gap:8px;flex-wrap:wrap}.pill,.tab,.badge,.tag{border:1px solid var(--line);background:#0c1727;border-radius:999px;padding:7px 11px;color:#dbe4ef;font-size:12px}.pill.live:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--ok);margin-right:7px}.tabs{position:sticky;top:0;z-index:30;margin:20px 0;padding:10px;background:rgba(7,16,28,.9);backdrop-filter:blur(16px);border:1px solid rgba(38,55,82,.8);border-radius:14px}.tab{cursor:pointer;border-radius:9px}.tab.on{background:var(--acc);border-color:var(--acc);color:#111827;font-weight:850}.panel,.card{background:linear-gradient(180deg,var(--card),var(--card2));border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}.panel{padding:18px;margin:16px 0}.geo{display:grid;grid-template-columns:1fr 1fr 1.5fr auto;gap:10px;align-items:end}.field{display:grid;gap:6px}.field label{font-size:11px;color:var(--mut);text-transform:uppercase;font-weight:800}.field select,.btn{border:1px solid var(--line);background:#0c1727;color:var(--txt);padding:10px 12px;border-radius:10px}.btn{cursor:pointer}.btn:hover{border-color:#526887}.btn.primary{background:var(--acc);border-color:var(--acc);color:#111827;font-weight:850}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.card{padding:16px;min-height:130px}.card h3{margin:0;color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.04em}.v{font-size:31px;font-weight:900;margin:9px 0 2px;letter-spacing:-.03em}.v.small{font-size:24px}.m{font-size:12px;color:var(--mut)}.note{border-left:3px solid var(--acc);padding:11px 14px;background:#101b2c;margin:18px 0;border-radius:8px;color:#dfe7f1}.pane.hide{display:none}table{border-collapse:collapse;width:100%}th,td{border-bottom:1px solid var(--line);padding:9px;text-align:left;vertical-align:top}th{font-size:11px;color:var(--mut);text-transform:uppercase}.section{margin-top:22px}.section h2,.panel h2{font-size:21px;margin:0 0 10px}.panel h3{margin-top:0}.kpi-row{display:flex;gap:12px;flex-wrap:wrap}.kpi-mini{min-width:160px;flex:1;border:1px solid var(--line);border-radius:12px;padding:12px;background:#0b1625}.kpi-mini b{display:block;font-size:20px;margin-top:3px}.chart{height:190px;width:100%;margin-top:8px}.chart svg{width:100%;height:100%;overflow:visible}.line{fill:none;stroke:var(--acc);stroke-width:3}.dot{fill:var(--acc)}.axis{stroke:#31445f;stroke-width:1}.label{fill:var(--mut);font-size:10px}.source-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.source{display:block;padding:14px;border:1px solid var(--line);border-radius:12px;background:#0b1625;color:var(--txt);text-decoration:none}.source:hover{border-color:#526887}.source span{display:block;color:var(--mut);font-size:12px;margin-top:4px}.timeline{display:grid;gap:10px}.cycle{border-left:3px solid var(--line);padding:10px 14px;background:#0b1625;border-radius:8px}.cycle b{color:var(--acc)}.status{display:inline-flex;align-items:center;gap:7px}.status i{width:8px;height:8px;border-radius:50%;background:var(--ok);display:inline-block}.footlinks{display:flex;gap:14px;flex-wrap:wrap}.footlinks a,a.link{color:#cddcff;text-decoration:none}.footlinks a:hover,a.link:hover{text-decoration:underline}.footer{margin:38px 0 10px;padding-top:18px;border-top:1px solid var(--line);color:var(--mut);font-size:12px}.muted{color:var(--mut)}.alert{border:1px solid #695a31;background:#1a1920;padding:12px;border-radius:12px}.territorial{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.territorial .card{min-height:110px}.fine{font-size:11px;color:var(--mut)}
-.heroShell{position:relative;overflow:hidden;border:1px solid var(--line);border-radius:24px;padding:28px;background:linear-gradient(135deg,#0f2038 0%,#0b1728 58%,#1f2631 100%);box-shadow:var(--shadow);margin-bottom:18px}
-.heroShell:after{content:"2026";position:absolute;right:-18px;top:-38px;font-size:180px;font-weight:950;letter-spacing:-.08em;color:rgba(232,215,155,.055);pointer-events:none}
-.yearRow{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:12px 0 6px}
-.yearBadge{display:inline-flex;align-items:center;gap:8px;background:var(--acc);color:#111827;border-radius:999px;padding:8px 13px;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
-.yearBadge:before{content:"";width:8px;height:8px;border-radius:50%;background:#1f7a45}
-.heroActions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-.heroLink{display:inline-block;padding:10px 14px;border:1px solid var(--line);border-radius:10px;color:var(--txt);text-decoration:none;background:#0b1727}
-.heroLink.primary{background:var(--acc);color:#111827;border-color:var(--acc);font-weight:850}
-.freshness{display:grid;grid-template-columns:2fr 1fr;gap:12px;margin:16px 0}
-.freshBox{border:1px solid var(--line);border-radius:16px;padding:16px;background:#0d1829}
-.freshBox h2{margin:0 0 5px;font-size:18px}.freshBox strong{color:var(--acc)}
-.sectionTitle{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:22px 0 12px}.sectionTitle h2{margin:0;font-size:25px}.sectionTitle p{margin:0;color:var(--mut);font-size:12px;text-align:right}
-.tag2026,.tagLatest{display:inline-block;margin-top:8px;padding:4px 8px;border-radius:999px;font-size:10px;font-weight:850;text-transform:uppercase;letter-spacing:.05em}
-.tag2026{background:rgba(153,216,174,.14);color:#bdf0ca;border:1px solid rgba(153,216,174,.3)}
-.tagLatest{background:rgba(228,187,121,.10);color:#f1d29a;border:1px solid rgba(228,187,121,.25)}
-.card.current{border-color:#365f4a;background:linear-gradient(180deg,#112437,#0d1727)}
-.card.annual{border-color:#53482f}
+.heroShell{padding:18px 0 4px;margin-bottom:6px}
+.yearRow{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:10px 0 0}
+.yearBadge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#0d1728;color:var(--acc);border-radius:999px;padding:6px 10px;font-weight:850;font-size:11px;text-transform:uppercase;letter-spacing:.05em}
+.heroActions{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.heroLink{display:inline-block;padding:8px 11px;border:1px solid var(--line);border-radius:9px;color:#d7e1ef;text-decoration:none;background:#0d1728;font-size:12px}
+.heroLink.primary{background:#17243a;color:var(--txt);font-weight:800}
+.freshness{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+.freshBox{border:1px solid var(--line);border-radius:12px;padding:13px;background:#0d1728}
+.freshBox h2{margin:0 0 4px;font-size:15px;font-weight:800}.freshBox strong{color:var(--txt)}
+.sectionTitle{display:flex;justify-content:space-between;gap:12px;align-items:end;margin:20px 0 10px}.sectionTitle h2{margin:0;font-size:20px}.sectionTitle p{margin:0;color:var(--mut);font-size:11px;text-align:right}
+.tag2026,.tagLatest{display:inline-block;margin-top:8px;padding:3px 7px;border-radius:999px;font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;border:1px solid var(--line);background:#0d1728;color:var(--mut)}
+.card.current,.card.annual{border-color:var(--line);background:linear-gradient(180deg,var(--card),#0d1728)}
 .skip{position:absolute;left:-9999px;top:8px;background:#fff;color:#111;padding:8px 12px;border-radius:8px;z-index:999}.skip:focus{left:8px}
 @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}.grid3,.source-grid,.territorial{grid-template-columns:1fr 1fr}.geo{grid-template-columns:1fr 1fr}.tabs{position:static}}
-@media(max-width:600px){.wrap{padding:14px}.grid,.grid3,.source-grid,.territorial,.geo,.freshness{grid-template-columns:1fr}.v{font-size:28px}.tabs{padding:8px}.heroShell{padding:20px}.heroShell:after{font-size:110px;top:-20px}.sectionTitle{display:block}.sectionTitle p{text-align:left;margin-top:6px}}
+@media(max-width:600px){.wrap{padding:18px}.grid,.grid3,.source-grid,.territorial,.geo,.freshness{grid-template-columns:1fr}.v{font-size:28px}.tabs{padding:8px}.sectionTitle{display:block}.sectionTitle p{text-align:left;margin-top:6px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Nem Direita, Nem Esquerda — Brasil em Dados","description":"Portal apartidário de pesquisa com indicadores oficiais brasileiros.","url":"https://nem-direita-nem-esquerda-brasil-m83fm8bez.vercel.app/","creator":{"@type":"Organization","name":"Nem Direita, Nem Esquerda"},"spatialCoverage":"Brasil"}</script>
 </head>
 <body><a class="skip" href="#pesquisa">Pular para a pesquisa</a><main class="wrap">
 <header class="top heroShell">
 <div class="ey">Brasil em dados • sem torcida</div>
-<div class="yearRow"><span class="yearBadge">Painel 2026</span><span class="pill">Atualização por fonte oficial</span></div>
 <h1>Nem Direita,<br>Nem Esquerda.</h1>
-<p class="lead">Um portal para pesquisar o Brasil de 2026 com dados oficiais, contexto histórico e recortes por país, estado e município. O dado mais recente vem primeiro; séries anuais defasadas são identificadas como “último oficial disponível”.</p>
-<div class="pills">
+<p class="lead">Dados oficiais do Brasil, com prioridade para as informações mais recentes de 2026 e identificação clara quando a última publicação disponível ainda é de 2024 ou 2025.</p>
+<div class="yearRow">
+<span class="yearBadge">Referência principal: 2026</span>
 <span class="pill live">Fontes oficiais</span>
 <span class="pill" id="fresh">Atualizando feeds...</span>
 <span class="pill">Sem ranking de governos</span>
 <span class="pill">Versão 1.6</span>
 <span class="pill" id="scope">Brasil</span>
 </div>
-<div class="heroActions"><a class="heroLink primary" href="#pesquisa">Pesquisar dados</a><a class="heroLink" href="#macro">Ver Macro Brasil</a><a class="heroLink" href="./metodologia.html">Metodologia</a></div>
+<div class="heroActions">
+<a class="heroLink primary" href="#pesquisa">Pesquisar</a>
+<a class="heroLink" href="#macro">Macro Brasil</a>
+<a class="heroLink" href="./metodologia.html">Metodologia</a>
+</div>
 </header>
 
-<section class="freshness">
-<div class="freshBox"><div class="ey">Prioridade editorial</div><h2><strong>2026 primeiro.</strong> Dados correntes e automáticos ficam em destaque.</h2><p class="m">PIB, inflação, desemprego, juros, câmbio, dívida e demais séries de alta frequência são atualizados conforme a publicação oficial.</p></div>
-<div class="freshBox"><div class="ey">Séries anuais</div><h2>Último oficial ≠ dado de 2026</h2><p class="m">Ideb, expectativa de vida e violência podem ter referência 2024/2025 porque são as divulgações oficiais mais recentes. O portal passa a sinalizar isso claramente.</p></div>
+<section class="panel" style="padding:14px 16px">
+<div class="ey">Atualidade dos dados</div>
+<p style="margin:5px 0 0"><b>2026 é a referência principal.</b> Quando um indicador oficial ainda não possui publicação de 2026, exibimos o último dado disponível e o respectivo ano de referência.</p>
 </section>
 
 <section class="panel" id="pesquisa">
