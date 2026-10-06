@@ -1,7 +1,7 @@
 {
   "meta": {
     "projeto": "Nem Direita, Nem Esquerda",
-    "versao": "1.4",
+    "versao": "1.5",
     "gerado_em": "2026-10-06",
     "aviso": "Catálogo público de referência. Séries oficiais podem ser revisadas; consulte a fonte primária indicada em cada indicador."
   },
@@ -219,6 +219,90 @@
       "fonte": "Tesouro Nacional / Siconfi",
       "url": "https://www.tesourotransparente.gov.br/consultas/consultas-siconfi/siconfi-api-de-dados-abertos",
       "observacao": "RREO, RGF, DCA, MSC e cadastro de entes; interpretação depende do demonstrativo e período."
+    },
+    {
+      "id": "cambio_usd",
+      "tema": "Macroeconomia",
+      "nome": "Câmbio dólar/venda",
+      "valor": "automático",
+      "referencia": "último dado disponível",
+      "unidade": "R$/US$",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "Banco Central do Brasil / SGS",
+      "url": "https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes",
+      "serie": "1"
+    },
+    {
+      "id": "reservas_internacionais",
+      "tema": "Macroeconomia",
+      "nome": "Reservas internacionais",
+      "valor": "automático",
+      "referencia": "último dado disponível",
+      "unidade": "US$ milhões",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "Banco Central do Brasil / SGS",
+      "url": "https://www.bcb.gov.br/estatisticas",
+      "serie": "13621"
+    },
+    {
+      "id": "resultado_primario_pib",
+      "tema": "Fiscal",
+      "nome": "Resultado primário acumulado em 12 meses / PIB",
+      "valor": "automático",
+      "referencia": "último dado disponível",
+      "unidade": "% do PIB",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "Banco Central do Brasil / SGS",
+      "url": "https://www.bcb.gov.br/estatisticas",
+      "serie": "5793"
+    },
+    {
+      "id": "juros_nominais_pib",
+      "tema": "Fiscal",
+      "nome": "Juros nominais acumulados em 12 meses / PIB",
+      "valor": "automático",
+      "referencia": "último dado disponível",
+      "unidade": "% do PIB",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "Banco Central do Brasil / SGS",
+      "url": "https://www.bcb.gov.br/estatisticas",
+      "serie": "5760"
+    },
+    {
+      "id": "resultado_nominal_pib",
+      "tema": "Fiscal",
+      "nome": "Resultado nominal acumulado em 12 meses / PIB",
+      "valor": "automático",
+      "referencia": "último dado disponível",
+      "unidade": "% do PIB",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "Banco Central do Brasil / SGS",
+      "url": "https://www.bcb.gov.br/estatisticas",
+      "serie": "5727"
+    },
+    {
+      "id": "conta_corrente_pib",
+      "tema": "Setor Externo",
+      "nome": "Conta corrente acumulada em 12 meses / PIB",
+      "valor": "automático",
+      "referencia": "último dado disponível",
+      "unidade": "% do PIB",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "Banco Central do Brasil / SGS",
+      "url": "https://www.bcb.gov.br/estatisticas",
+      "serie": "23079"
     }
   ],
   "series": {
