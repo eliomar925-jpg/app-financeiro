@@ -1,7 +1,7 @@
 {
   "meta": {
     "projeto": "Nem Direita, Nem Esquerda",
-    "versao": "1.1",
+    "versao": "1.2",
     "gerado_em": "2026-10-06",
     "aviso": "Catálogo público de referência. Séries oficiais podem ser revisadas; consulte a fonte primária indicada em cada indicador."
   },
@@ -204,6 +204,21 @@
       ],
       "fonte": "Atlas da Violência / Ipea",
       "url": "https://www.ipea.gov.br/atlasviolencia/"
+    },
+    {
+      "id": "siconfi",
+      "tema": "Fiscal",
+      "nome": "Finanças de estados e municípios (Siconfi)",
+      "valor": "consulta pública",
+      "referencia": "conforme demonstrativo",
+      "unidade": "R$",
+      "abrangencia": [
+        "Estado",
+        "Município"
+      ],
+      "fonte": "Tesouro Nacional / Siconfi",
+      "url": "https://www.tesourotransparente.gov.br/consultas/consultas-siconfi/siconfi-api-de-dados-abertos",
+      "observacao": "RREO, RGF, DCA, MSC e cadastro de entes; interpretação depende do demonstrativo e período."
     }
   ],
   "series": {
@@ -292,6 +307,10 @@
     {
       "termo": "Taxa por 100 mil",
       "definicao": "Medida padronizada que permite comparar eventos entre populações de tamanhos diferentes."
+    },
+    {
+      "termo": "Siconfi",
+      "definicao": "Sistema de Informações Contábeis e Fiscais do Setor Público Brasileiro, usado pelo Tesouro Nacional para receber e divulgar informações fiscais e contábeis de estados e municípios."
     }
   ]
 }
