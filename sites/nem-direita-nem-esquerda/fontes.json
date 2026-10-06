@@ -1,0 +1,94 @@
+{
+  "versao": "1.4",
+  "atualizado_em": "2026-10-06",
+  "fontes": [
+    {
+      "id": "ibge",
+      "nome": "IBGE",
+      "areas": [
+        "Demografia",
+        "Economia",
+        "Trabalho",
+        "Preços"
+      ],
+      "tipo": "API + dados abertos",
+      "automatizacao": "alta",
+      "url": "https://www.ibge.gov.br/",
+      "apis": [
+        "https://servicodados.ibge.gov.br/api/docs/localidades",
+        "https://sidra.ibge.gov.br/"
+      ]
+    },
+    {
+      "id": "bcb",
+      "nome": "Banco Central do Brasil",
+      "areas": [
+        "Fiscal",
+        "Juros",
+        "Crédito"
+      ],
+      "tipo": "API/SGS",
+      "automatizacao": "alta",
+      "url": "https://www.bcb.gov.br/estatisticas"
+    },
+    {
+      "id": "tesouro",
+      "nome": "Tesouro Nacional / Siconfi",
+      "areas": [
+        "Fiscal estadual",
+        "Fiscal municipal"
+      ],
+      "tipo": "API aberta",
+      "automatizacao": "alta",
+      "url": "https://www.tesourotransparente.gov.br/consultas/consultas-siconfi/siconfi-api-de-dados-abertos"
+    },
+    {
+      "id": "inep",
+      "nome": "Inep",
+      "areas": [
+        "Educação",
+        "Ideb",
+        "Censo Escolar"
+      ],
+      "tipo": "arquivos, painéis e dados abertos",
+      "automatizacao": "média",
+      "url": "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos",
+      "nota": "Parte das divulgações é publicada em arquivos e painéis, não em API pública estável."
+    },
+    {
+      "id": "datasus",
+      "nome": "DataSUS / Ministério da Saúde",
+      "areas": [
+        "Saúde",
+        "Mortalidade"
+      ],
+      "tipo": "dados abertos e sistemas tabulares",
+      "automatizacao": "média",
+      "url": "https://datasus.saude.gov.br/",
+      "nota": "A disponibilidade e forma de consulta variam por sistema e indicador."
+    },
+    {
+      "id": "ipea",
+      "nome": "Ipea / Atlas da Violência",
+      "areas": [
+        "Violência",
+        "Homicídios"
+      ],
+      "tipo": "relatórios e bases",
+      "automatizacao": "média",
+      "url": "https://www.ipea.gov.br/atlasviolencia/",
+      "nota": "O portal preserva registrado e estimado como medidas distintas."
+    },
+    {
+      "id": "mds",
+      "nome": "MDS",
+      "areas": [
+        "Proteção social",
+        "Benefícios"
+      ],
+      "tipo": "dados abertos e painéis",
+      "automatizacao": "média",
+      "url": "https://www.gov.br/mds/"
+    }
+  ]
+}
