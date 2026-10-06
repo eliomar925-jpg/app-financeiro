@@ -2,7 +2,8 @@ export default async function handler(req,res){
   const checks=[
     ['BCB','https://api.bcb.gov.br/dados/serie/bcdata.sgs.13762/dados/ultimos/1?formato=json'],
     ['IBGE Localidades','https://servicodados.ibge.gov.br/api/v1/localidades/estados?orderBy=nome'],
-    ['IBGE SIDRA','https://apisidra.ibge.gov.br/values/t/6579/n1/all/v/all/p/last%201?formato=json']
+    ['IBGE SIDRA','https://apisidra.ibge.gov.br/values/t/6579/n1/all/v/all/p/last%201?formato=json'],
+    ['Tesouro Siconfi','https://apidatalake.tesouro.gov.br/ords/siconfi/tt/entes?offset=0']
   ];
   const out={checkedAt:new Date().toISOString(),services:[]};
   for(const [name,url] of checks){
