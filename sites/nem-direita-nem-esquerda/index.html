@@ -234,6 +234,10 @@
 <div class="card current"><h3>Primário • 12 meses / PIB</h3><div class="v" id="fiscalPrimary">—</div><div class="m" id="fiscalPrimaryMeta">BCB/SGS • automático</div></div>
 <div class="card current"><h3>Juros nominais • 12 meses / PIB</h3><div class="v" id="fiscalInterest">—</div><div class="m" id="fiscalInterestMeta">BCB/SGS • automático</div></div>
 <div class="card current"><h3>Resultado nominal • 12 meses / PIB</h3><div class="v" id="fiscalNominal">—</div><div class="m" id="fiscalNominalMeta">BCB/SGS • automático</div></div>
+<div class="card current"><h3>Primário • R$ mensal</h3><div class="v" id="fiscalPrimaryRs">—</div><div class="m" id="fiscalPrimaryRsMeta">BCB/SGS • fluxo mensal</div></div>
+<div class="card current"><h3>Juros nominais • R$ mensal</h3><div class="v" id="fiscalInterestRs">—</div><div class="m" id="fiscalInterestRsMeta">BCB/SGS • fluxo mensal</div></div>
+<div class="card current"><h3>Resultado nominal • R$ mensal</h3><div class="v" id="fiscalNominalRs">—</div><div class="m" id="fiscalNominalRsMeta">BCB/SGS • fluxo mensal</div></div>
+<div class="card current"><h3>Dívida líquida • R$</h3><div class="v" id="fiscalDlspRs">—</div><div class="m" id="fiscalDlspRsMeta">BCB/SGS • estoque</div></div>
 <div class="card current"><h3>Selic efetiva</h3><div class="v" id="selic">—</div><div class="m" id="selicm">BCB/SGS • automático</div></div>
 <div class="card"><h3>Convenção fiscal</h3><div class="v small">NFSP</div><div class="m">déficit positivo • superávit negativo</div></div>
 </div>
@@ -243,6 +247,7 @@
 <tr><td>Juros nominais</td><td>Custo financeiro apropriado no período</td><td>É fluxo, não estoque da dívida.</td></tr>
 <tr><td>Resultado nominal</td><td>Primário + juros, na mesma cobertura e período</td><td>Mostra uma medida mais ampla da necessidade de financiamento.</td></tr>
 <tr><td>Dívida bruta</td><td>Estoque de obrigações do Governo Geral</td><td>É apresentada como proporção do PIB para facilitar comparação no tempo.</td></tr>
+<tr><td>Valores em R$</td><td>Montantes nominais em reais</td><td>Complementam as taxas em % do PIB. Para primário, juros e nominal, os cards em R$ mostram o fluxo mensal corrente; para dívida líquida, mostram estoque.</td></tr>
 </table></div>
 <div class="panel"><h2>Por que os números fiscais podem parecer contraditórios?</h2><p>Um período pode registrar <b>superávit primário</b> e, ainda assim, <b>déficit nominal</b>, porque os juros nominais entram apenas no resultado nominal. Da mesma forma, uma melhora no fluxo mensal não implica queda imediata do estoque da dívida.</p><p class="m">Os quatro cards acima são alimentados diretamente por séries SGS do Banco Central e exibem a data do último dado retornado.</p></div>
 </section>
@@ -570,6 +575,7 @@ async function loadMacro(){
   const bcb=async k=>{const r=await fetch('./api/bcb?serie='+k);if(!r.ok)throw new Error(k);return r.json()};
   const ibge=async k=>{const r=await fetch('./api/ibge?serie='+k);if(!r.ok)throw new Error(k);return r.json()};
   const pct=(v,d=1)=>Number(v).toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d})+'%';
+  const moneyMi=v=>{const n=Number(v);if(!Number.isFinite(n))return '—';const abs=Math.abs(n);if(abs>=1e6)return 'R$ '+(n/1e6).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+' tri';if(abs>=1e3)return 'R$ '+(n/1e3).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+' bi';return 'R$ '+n.toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0})+' mi';};
   const signed=(v,d=1)=>{const n=Number(v);return (n>0?'+':'')+n.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d})+'%'};
   const set=(id,val,meta)=>{const el=document.getElementById(id),m=document.getElementById(id+'Meta');if(el)el.textContent=val;if(m)m.textContent=meta};
   const values={};
@@ -584,11 +590,17 @@ async function loadMacro(){
     ['primario_pib','macroPrimary',v=>pct(String(v).replace(',','.'),2)],
     ['juros_pib','macroInterest',v=>pct(String(v).replace(',','.'),2)],
     ['nominal_pib','macroNominal',v=>pct(String(v).replace(',','.'),2)],
-    ['conta_corrente_pib','macroCurrentAccount',v=>pct(String(v).replace(',','.'),2)]
+    ['conta_corrente_pib','macroCurrentAccount',v=>pct(String(v).replace(',','.'),2)],
+    ['primario_rs','fiscalPrimaryRs',v=>moneyMi(String(v).replace(',','.'))],
+    ['juros_rs','fiscalInterestRs',v=>moneyMi(String(v).replace(',','.'))],
+    ['nominal_rs','fiscalNominalRs',v=>moneyMi(String(v).replace(',','.'))],
+    ['dlsp_rs','fiscalDlspRs',v=>moneyMi(String(v).replace(',','.'))]
   ];
   for(const [k,id,fmt] of specs){
     try{
-      const d=await bcb(k); values[k]=Number(String(d.valor).replace(',','.')); set(id,fmt(d.valor),'BCB/SGS • '+(d.data||'último dado'));
+      const d=await bcb(k); values[k]=Number(String(d.valor).replace(',','.'));
+      const meta=['primario_rs','juros_rs','nominal_rs'].includes(k)?'BCB/SGS • '+(d.data||'último dado')+' • fluxo mensal':['dlsp_rs'].includes(k)?'BCB/SGS • '+(d.data||'último dado')+' • estoque':'BCB/SGS • '+(d.data||'último dado');
+      set(id,fmt(d.valor),meta);
     }catch(e){}
   }
   const txt=[];
