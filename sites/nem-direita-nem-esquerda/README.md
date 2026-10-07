@@ -28,3 +28,19 @@ O portal não ranqueia governos. Séries oficiais são preservadas com sua perio
 
 ## Publicação
 A pasta é usada como Root Directory do projeto Vercel. Pushes na branch principal devem gerar novo deployment quando a integração Git está ativa.
+
+## Auditoria técnica 1.8.0 (07/10/2026)
+
+Endereço estável: https://nem-direita-nem-esquerda-brasil.vercel.app/
+
+Execute `node --test sites/nem-direita-nem-esquerda/tests/regression.test.mjs` a partir da raiz do repositório.
+Os testes cobrem parsing SIDRA, indicadores derivados, unidade monetária municipal, falha parcial, parâmetros dos proxies e integridade do HTML. Não substituem homologação em navegador e em produção.
+
+SIDRA usa ponto decimal; `...`, `-` e valores ausentes não representam zero. PIB da tabela 5938 em Mil Reais é convertido para reais. Séries NFSP são preservadas: déficit positivo, superávit negativo; nominal = primário + juros para o mesmo período e cobertura. Cache das APIs pertence à CDN; o service worker não devolve HTML para chamadas JSON nem mascara respostas antigas como atuais.
+
+### Pendências de homologação
+
+- A conexão Vercel retornou 403 em `read_protection_bypass` para o projeto `prj_wNMqzE6dGW4lolYN0rZykmI06ek1`, equipe `team_u9QhJW2G5QPSOu7dwyVul7UO`. Inspeção de metadados funciona, acesso autenticado ao conteúdo não.
+- Validação completa dos indicadores curados, séries históricas, granularidade setorial, catálogo dinâmico e integrações educacionais, sociais e sanitárias ainda pendente.
+- Responsividade em dispositivos, acessibilidade, performance e teste pós-deploy ainda não homologados.
+- Esta revisão técnica não certifica o portal como pronto para publicação.

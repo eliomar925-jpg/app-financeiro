@@ -1,7 +1,7 @@
 function parseRows(j){return Array.isArray(j)?j.slice(1):[]}
-function n(v){const x=Number(String(v??'').replace('.','').replace(',','.'));return Number.isFinite(x)?x:null}
+function n(v){if(v==null||!/^[-+]?\d+(?:[.,]\d+)?$/.test(String(v).trim()))return null;const x=Number(String(v).replace(',','.'));return Number.isFinite(x)?x:null}
 async function sidra(path){
-  const r=await fetch('https://apisidra.ibge.gov.br/values'+path,{headers:{'user-agent':'nem-direita-nem-esquerda/1.3'}});
+  const r=await fetch('https://apisidra.ibge.gov.br/values'+path,{signal:AbortSignal.timeout(12000),headers:{'user-agent':'nem-direita-nem-esquerda/1.3'}});
   if(!r.ok)throw new Error('SIDRA '+r.status);
   return parseRows(await r.json());
 }
@@ -31,4 +31,4 @@ export default async function handler(req,res){
     res.status(400).json({error:'serie invalida',allowed:['desemprego','ipca12m','pib_trimestre']});
   }catch(e){res.status(502).json({error:'IBGE indisponivel',detail:String(e)})}
 }
-function send(res,obj){res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=3600');res.status(200).json(obj)}
+function send(res,obj){if(obj.valor==null||!Number.isFinite(obj.valor)||!obj.periodo)return res.status(502).json({error:'Fonte temporariamente indisponível.'});obj.atualizado_em=new Date().toISOString();obj.territorio='Brasil';obj.unidade='%';obj.tipo_atualizacao='automatica';obj.url='https://sidra.ibge.gov.br/tabela/'+obj.tabela;res.setHeader('Cache-Control','s-maxage=900, stale-while-revalidate=3600');res.status(200).json(obj)}

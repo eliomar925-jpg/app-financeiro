@@ -25,3 +25,14 @@
 
 ## 1.0 — 2026-10-05
 - Painel público inicial com temas nacionais e seletor territorial.
+
+## 1.8.0 — 2026-10-07 — correções técnicas, homologação pendente
+- Corrige parsing dos decimais SIDRA e conversão do PIB municipal de milhares de reais para reais.
+- Isola falhas de população e PIB territorial e limita tempo de espera das fontes.
+- Rejeita níveis/IDs territoriais inválidos, séries BCB herdadas do protótipo e parâmetros Siconfi indevidos.
+- Valida respostas BCB/Siconfi e inclui metadados BCB.
+- Corrige IDs duplicados, fechamento HTML, link da aba Macro e preservação territorial ao limpar busca.
+- Associa labels aos campos, melhora larguras e alvos de toque, e informa corretamente convenção NFSP.
+- Usa domínio estável em canonical, sitemap e documentação.
+- Corrige fallback offline e escopo do service worker, evitando HTML em respostas de APIs.
+- Adiciona oito testes de regressão; integração e produção ainda não homologadas.
