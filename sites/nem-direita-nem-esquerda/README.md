@@ -44,3 +44,10 @@ SIDRA usa ponto decimal; `...`, `-` e valores ausentes não representam zero. PI
 - Validação completa dos indicadores curados, séries históricas, granularidade setorial, catálogo dinâmico e integrações educacionais, sociais e sanitárias ainda pendente.
 - Responsividade em dispositivos, acessibilidade, performance e teste pós-deploy ainda não homologados.
 - Esta revisão técnica não certifica o portal como pronto para publicação.
+
+
+## Versão candidata 1.9 (08/10/2026)
+
+A versão 1.9 consolida o portal para publicação pública: foco em 2026, painel macro, recortes territoriais, busca, catálogo, glossário, downloads, APIs próprias, status de fontes, PWA/SEO e valores monetários em Economia, Fiscal e Social.
+
+A publicação é automática pela integração Git → Vercel. O status de deploy deve estar em `success` no commit final antes de considerar a release concluída.
