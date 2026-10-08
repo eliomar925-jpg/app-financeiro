@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.9 — 2026-10-08 — candidata de publicação
+- Detalha Economia, Trabalho, Fiscal e Educação com maior contexto e referências de 2026.
+- Adiciona valores monetários em R$ para PIB, componentes econômicos, contas fiscais e proteção social.
+- Integra séries fiscais monetárias adicionais do BCB e preserva a distinção entre fluxo e estoque.
+- Amplia Bolsa Família/Cadastro Único e referências financeiras do Inep com escopo metodológico explícito.
+- Alinha interface, catálogo e cache offline na versão 1.9.
+- Deploy automático via Vercel validado pelo status do GitHub; inspeção autenticada do conteúdo segue limitada pela conexão Vercel.
+
 ## 1.5 — 2026-10-06
 - Novo painel Macro Brasil.
 - Indicadores automáticos de PIB trimestral, IPCA 12 meses e desemprego via IBGE/SIDRA.
