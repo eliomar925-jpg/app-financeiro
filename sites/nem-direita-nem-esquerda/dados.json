@@ -1,8 +1,8 @@
 {
   "meta": {
     "projeto": "Nem Direita, Nem Esquerda",
-    "versao": "1.8",
-    "gerado_em": "2026-10-07",
+    "versao": "1.9",
+    "gerado_em": "2026-10-08",
     "aviso": "Catálogo público de referência. Séries oficiais podem ser revisadas; consulte a fonte primária indicada em cada indicador."
   },
   "indicadores": [
@@ -303,6 +303,87 @@
       "fonte": "Banco Central do Brasil / SGS",
       "url": "https://www.bcb.gov.br/estatisticas",
       "serie": "23079"
+    },
+    {
+      "id": "pib_valor_corrente_2025",
+      "tema": "Economia",
+      "nome": "PIB do Brasil em valores correntes",
+      "valor": "R$ 12,7 tri",
+      "referencia": "2025",
+      "unidade": "R$",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "IBGE",
+      "url": "https://www.ibge.gov.br/estatisticas/economicas/contas-nacionais.html",
+      "observacao": "Último ano anual fechado; em 2026 o acompanhamento corrente usa as divulgações trimestrais."
+    },
+    {
+      "id": "pib_per_capita_2025",
+      "tema": "Economia",
+      "nome": "PIB per capita",
+      "valor": "R$ 59.687,49",
+      "referencia": "2025",
+      "unidade": "R$ por habitante",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "IBGE",
+      "url": "https://www.ibge.gov.br/estatisticas/economicas/contas-nacionais.html"
+    },
+    {
+      "id": "bolsa_familia_repasse_set_2026",
+      "tema": "Social",
+      "nome": "Bolsa Família — valor repassado no mês",
+      "valor": "R$ 13,04 bi",
+      "referencia": "set/2026",
+      "unidade": "R$",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "MDS",
+      "url": "https://cecad.cidadania.gov.br/",
+      "observacao": "Folha de pagamento do Programa Bolsa Família."
+    },
+    {
+      "id": "bolsa_familia_acumulado_2026",
+      "tema": "Social",
+      "nome": "Bolsa Família — acumulado no ano",
+      "valor": "R$ 116,83 bi",
+      "referencia": "jan–set/2026",
+      "unidade": "R$",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "MDS",
+      "url": "https://cecad.cidadania.gov.br/"
+    },
+    {
+      "id": "bolsa_familia_medio_set_2026",
+      "tema": "Social",
+      "nome": "Bolsa Família — benefício médio",
+      "valor": "R$ 675,88",
+      "referencia": "set/2026",
+      "unidade": "R$ por família",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "MDS",
+      "url": "https://cecad.cidadania.gov.br/"
+    },
+    {
+      "id": "inep_dotacao_2025",
+      "tema": "Educação",
+      "nome": "Dotação final do Inep",
+      "valor": "R$ 1,46 bi",
+      "referencia": "2025",
+      "unidade": "R$",
+      "abrangencia": [
+        "Brasil"
+      ],
+      "fonte": "Inep / Tesouro Gerencial",
+      "url": "https://www.gov.br/inep/",
+      "observacao": "Não representa o gasto total do Brasil em educação; é a execução orçamentária do Inep."
     }
   ],
   "series": {
