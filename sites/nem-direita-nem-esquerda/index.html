@@ -184,6 +184,14 @@
 <section id="economia" class="pane hide">
 <div class="sectionTitle"><div><div class="ey">Economia • 2026</div><h2>Atividade, preços e setores</h2></div><p>Última referência oficial disponível por indicador.</p></div>
 <div class="grid">
+<div class="card annual"><h3>PIB • valor corrente</h3><div class="v">R$ 12,7 tri</div><div class="m">2025 • último ano fechado • IBGE</div></div>
+<div class="card annual"><h3>PIB per capita</h3><div class="v">R$ 59.687,49</div><div class="m">2025 • IBGE</div></div>
+<div class="card annual"><h3>Agropecuária • valor corrente</h3><div class="v">R$ 775,3 bi</div><div class="m">2025 • IBGE</div></div>
+<div class="card annual"><h3>Indústria • valor corrente</h3><div class="v">R$ 2,6 tri</div><div class="m">2025 • IBGE</div></div>
+<div class="card annual"><h3>Serviços • valor corrente</h3><div class="v">R$ 7,6 tri</div><div class="m">2025 • IBGE</div></div>
+<div class="card annual"><h3>Consumo das famílias</h3><div class="v">R$ 8,1 tri</div><div class="m">2025 • IBGE</div></div>
+<div class="card annual"><h3>Consumo do governo</h3><div class="v">R$ 2,4 tri</div><div class="m">2025 • IBGE</div></div>
+<div class="card annual"><h3>Investimento (FBCF)</h3><div class="v">R$ 2,1 tri</div><div class="m">2025 • 16,8% do PIB • IBGE</div></div>
 <div class="card current"><h3>PIB • trimestre</h3><div class="v" id="pibQoqEconomia">+0,5%</div><div class="m" id="pibQoqEconomiaMeta">2º tri/2026 vs. trimestre anterior</div></div>
 <div class="card current"><h3>PIB • 4 trimestres</h3><div class="v">1,9%</div><div class="m">2º tri/2026 • IBGE</div></div>
 <div class="card current"><h3>IPCA • agosto</h3><div class="v">−0,32%</div><div class="m">ago/2026 • IBGE</div></div>
@@ -193,6 +201,17 @@
 <div class="card current"><h3>Comércio varejista</h3><div class="v">−0,8%</div><div class="m">jul/2026 • mês contra mês anterior • IBGE</div></div>
 <div class="card current"><h3>Serviços</h3><div class="v">0,0%</div><div class="m">jul/2026 • mês contra mês anterior • IBGE</div></div>
 </div>
+<div class="panel"><h2>Quanto a economia movimenta em R$</h2>
+<p>Os valores correntes mostram o tamanho monetário da economia. Para comparar desempenho ao longo do tempo, o portal mantém separada a <b>variação real do PIB</b>, que desconta o efeito dos preços.</p>
+<table><tr><th>Componente</th><th>Valor corrente • 2025</th><th>Participação / referência</th></tr>
+<tr><td>PIB</td><td>R$ 12,7 trilhões</td><td>100%</td></tr>
+<tr><td>Serviços</td><td>R$ 7,6 trilhões</td><td>maior componente do valor adicionado</td></tr>
+<tr><td>Indústria</td><td>R$ 2,6 trilhões</td><td>valor adicionado</td></tr>
+<tr><td>Agropecuária</td><td>R$ 775,3 bilhões</td><td>valor adicionado</td></tr>
+<tr><td>Consumo das famílias</td><td>R$ 8,1 trilhões</td><td>ótica da despesa</td></tr>
+<tr><td>FBCF / investimento</td><td>R$ 2,1 trilhões</td><td>16,8% do PIB</td></tr>
+</table>
+<p class="m">Valores de 2025 são usados porque é o último ano anual fechado oficialmente. Em 2026, o acompanhamento corrente permanece pelos indicadores mensais e trimestrais.</p></div>
 <div class="panel"><h2>Leitura setorial de 2026</h2>
 <table>
 <tr><th>Indicador</th><th>Último</th><th>12 meses</th><th>No ano</th><th>Fonte</th></tr>
@@ -279,6 +298,13 @@
 <div class="card"><h3>Anos finais</h3><div class="v small">11,2 mi</div><div class="m">matrículas • 61 mil escolas</div></div>
 <div class="card"><h3>Ensino médio</h3><div class="v small">7,3 mi</div><div class="m">matrículas • 30 mil escolas</div></div>
 </div></div>
+<div class="panel"><h2>Recursos do Inep — referência financeira</h2>
+<div class="grid3">
+<div class="card annual"><h3>Dotação final do Inep</h3><div class="v small">R$ 1,46 bi</div><div class="m">2025 • Tesouro Gerencial / Inep</div></div>
+<div class="card annual"><h3>Empenhado diretamente pelo Inep</h3><div class="v small">R$ 1,44 bi</div><div class="m">2025 • Inep</div></div>
+<div class="card annual"><h3>Educação básica</h3><div class="v small">57%</div><div class="m">do empenhado diretamente pelo Inep • 2025</div></div>
+</div>
+<p class="m"><b>Atenção:</b> estes valores são do orçamento do Inep, não representam o gasto total do Brasil em educação. O portal mantém essa distinção para não confundir orçamento institucional com investimento educacional agregado.</p></div>
 <div class="panel"><h2>Ideb — série histórica dos anos iniciais</h2><div class="chart" id="idebChart"></div><p class="m">O portal mantém a série histórica separada do dado corrente para mostrar tendência sem tratar evolução educacional como efeito automático de um único mandato.</p></div>
 </section>
 
@@ -292,8 +318,28 @@
 </section>
 
 <section id="social" class="pane hide">
-<div class="panel"><h2>Projetos e benefícios</h2><p>O comparador usa <b>beneficiários, gasto real, cobertura da população e resultado social associado</b>, e não apenas a quantidade de programas anunciados.</p>
-<table><tr><th>Indicador histórico</th><th>Referência</th><th>Como interpretar</th></tr><tr><td>Bolsa Família • famílias</td><td>~6,6 mi (2004) → ~14,0 mi (2014)</td><td>Cobertura, valor real e perfil das famílias</td></tr><tr><td>Minha Casa Minha Vida</td><td>3,47 mi entregues no recorte 2009–2017</td><td>Contratadas ≠ entregues</td></tr><tr><td>Universidades federais</td><td>expansão de campi e municípios atendidos</td><td>Estrutura ≠ resultado de aprendizagem</td></tr></table></div>
+<div class="sectionTitle"><div><div class="ey">Proteção social • 2026</div><h2>Beneficiários e valores transferidos</h2></div><p>MDS • última referência oficial disponível</p></div>
+<div class="grid">
+<div class="card current"><h3>Famílias beneficiárias • Bolsa Família</h3><div class="v">19,30 mi</div><div class="m">set/2026 • MDS</div></div>
+<div class="card current"><h3>Valor repassado no mês</h3><div class="v">R$ 13,04 bi</div><div class="m">set/2026 • Bolsa Família</div></div>
+<div class="card current"><h3>Acumulado em 2026</h3><div class="v">R$ 116,83 bi</div><div class="m">jan–set/2026 • Bolsa Família</div></div>
+<div class="card current"><h3>Benefício médio</h3><div class="v">R$ 675,88</div><div class="m">set/2026 • Bolsa Família</div></div>
+<div class="card current"><h3>Piso a partir de outubro</h3><div class="v">R$ 691</div><div class="m">out/2026 • valor mínimo garantido por família</div></div>
+<div class="card current"><h3>Benefício médio estimado • outubro</h3><div class="v">R$ 777</div><div class="m">out/2026 • MDS</div></div>
+<div class="card"><h3>Cadastro Único • famílias</h3><div class="v">43,43 mi</div><div class="m">set/2026 • MDS</div></div>
+<div class="card"><h3>Cadastro Único • pessoas</h3><div class="v">98,02 mi</div><div class="m">set/2026 • MDS</div></div>
+</div>
+<div class="panel"><h2>Transferências sociais em perspectiva</h2>
+<table><tr><th>Indicador</th><th>Valor</th><th>Referência</th></tr>
+<tr><td>Bolsa Família • repasse mensal</td><td>R$ 13,04 bilhões</td><td>set/2026</td></tr>
+<tr><td>Bolsa Família • acumulado no ano</td><td>R$ 116,83 bilhões</td><td>jan–set/2026</td></tr>
+<tr><td>Bolsa Família • total anual anterior</td><td>R$ 159,54 bilhões</td><td>2025</td></tr>
+<tr><td>Benefício médio</td><td>R$ 675,88</td><td>set/2026</td></tr>
+<tr><td>Novo piso garantido</td><td>R$ 691</td><td>a partir de out/2026</td></tr>
+</table>
+<p class="m">Valores monetários são mostrados junto com número de famílias para evitar interpretar aumento ou redução de gasto sem considerar cobertura e benefício médio.</p></div>
+<div class="panel"><h2>Outros programas</h2><p>Habitação, transferência de renda e proteção social devem ser comparados por <b>cobertura, valor real, público atendido e execução</b>, e não apenas pelo orçamento anunciado.</p>
+<table><tr><th>Indicador histórico</th><th>Referência</th><th>Como interpretar</th></tr><tr><td>Minha Casa Minha Vida</td><td>3,47 mi entregues no recorte 2009–2017</td><td>Contratadas ≠ entregues</td></tr><tr><td>Universidades federais</td><td>expansão de campi e municípios atendidos</td><td>Estrutura ≠ resultado de aprendizagem</td></tr></table></div>
 </section>
 
 <section id="violencia" class="pane hide">
