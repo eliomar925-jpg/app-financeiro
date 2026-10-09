@@ -1,8 +1,8 @@
 {
   "meta": {
     "projeto": "Nem Direita, Nem Esquerda",
-    "versao": "2.0",
-    "gerado_em": "2026-10-08",
+    "versao": "2.0.1",
+    "gerado_em": "2026-10-09",
     "aviso": "Catálogo público de referência. Séries oficiais podem ser revisadas; consulte a fonte primária indicada em cada indicador."
   },
   "indicadores": [
@@ -20,7 +20,12 @@
       ],
       "fonte": "IBGE/SIDRA",
       "url": "https://sidra.ibge.gov.br/",
-      "observacao": "O portal tenta consultar a tabela SIDRA 6579 para o território selecionado."
+      "observacao": "O portal tenta consultar a tabela SIDRA 6579 para o território selecionado.",
+      "territorio": "Brasil",
+      "periodo": "2026",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte"
     },
     {
       "id": "divida_bruta_pib",
@@ -34,7 +39,13 @@
       ],
       "fonte": "Banco Central do Brasil / SGS",
       "url": "https://www.bcb.gov.br/estatisticas",
-      "serie": "13762"
+      "serie": "13762",
+      "territorio": "Brasil",
+      "periodo": "último dado disponível",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "selic_efetiva",
@@ -48,7 +59,13 @@
       ],
       "fonte": "Banco Central do Brasil / SGS",
       "url": "https://www.bcb.gov.br/estatisticas",
-      "serie": "4189"
+      "serie": "4189",
+      "territorio": "Brasil",
+      "periodo": "último dado disponível",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "desemprego_latest",
@@ -61,7 +78,13 @@
         "Brasil"
       ],
       "fonte": "IBGE / PNAD Contínua",
-      "url": "https://www.ibge.gov.br/estatisticas/sociais/trabalho.html"
+      "url": "https://www.ibge.gov.br/estatisticas/sociais/trabalho.html",
+      "territorio": "Brasil",
+      "periodo": "jun–ago/2026",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "ipca_12m",
@@ -74,7 +97,13 @@
         "Brasil"
       ],
       "fonte": "IBGE",
-      "url": "https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos.html"
+      "url": "https://www.ibge.gov.br/estatisticas/economicas/precos-e-custos.html",
+      "territorio": "Brasil",
+      "periodo": "ago/2026",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "pib_4tri",
@@ -87,13 +116,19 @@
         "Brasil"
       ],
       "fonte": "IBGE / Contas Nacionais",
-      "url": "https://www.ibge.gov.br/estatisticas/economicas/contas-nacionais.html"
+      "url": "https://www.ibge.gov.br/estatisticas/economicas/contas-nacionais.html",
+      "territorio": "Brasil",
+      "periodo": "2º tri/2026",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "ideb_iniciais",
       "tema": "Educação",
       "nome": "Ideb — anos iniciais",
-      "valor": "6,3",
+      "valor": 6.3,
       "referencia": "2025",
       "unidade": "índice",
       "abrangencia": [
@@ -102,13 +137,19 @@
         "Município"
       ],
       "fonte": "Inep",
-      "url": "https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb"
+      "url": "https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica",
+      "territorio": "Brasil",
+      "periodo": "2025",
+      "atualizado_em": "2026-10-09",
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Bienal",
+      "observacao": "Brasil, redes pública e privada. Referência 2025, divulgação em agosto de 2026."
     },
     {
       "id": "ideb_finais",
       "tema": "Educação",
       "nome": "Ideb — anos finais",
-      "valor": "5,3",
+      "valor": 5.3,
       "referencia": "2025",
       "unidade": "índice",
       "abrangencia": [
@@ -117,13 +158,19 @@
         "Município"
       ],
       "fonte": "Inep",
-      "url": "https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb"
+      "url": "https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica",
+      "territorio": "Brasil",
+      "periodo": "2025",
+      "atualizado_em": "2026-10-09",
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Bienal",
+      "observacao": "Brasil, redes pública e privada. Referência 2025, divulgação em agosto de 2026."
     },
     {
       "id": "ideb_medio",
       "tema": "Educação",
       "nome": "Ideb — ensino médio",
-      "valor": "4,5",
+      "valor": 4.5,
       "referencia": "2025",
       "unidade": "índice",
       "abrangencia": [
@@ -131,7 +178,13 @@
         "Estado"
       ],
       "fonte": "Inep",
-      "url": "https://www.gov.br/inep/pt-br/areas-de-atuacao/pesquisas-estatisticas-e-indicadores/ideb"
+      "url": "https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica",
+      "territorio": "Brasil",
+      "periodo": "2025",
+      "atualizado_em": "2026-10-09",
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Bienal",
+      "observacao": "Brasil, redes pública e privada. Referência 2025, divulgação em agosto de 2026."
     },
     {
       "id": "expectativa_vida",
@@ -145,7 +198,13 @@
         "Estado"
       ],
       "fonte": "IBGE",
-      "url": "https://www.ibge.gov.br/estatisticas/sociais/populacao.html"
+      "url": "https://www.ibge.gov.br/estatisticas/sociais/populacao.html",
+      "territorio": "Brasil",
+      "periodo": "2024",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "mortalidade_infantil",
@@ -160,7 +219,13 @@
         "Município conforme base"
       ],
       "fonte": "IBGE / sistemas oficiais de saúde",
-      "url": "https://datasus.saude.gov.br/"
+      "url": "https://datasus.saude.gov.br/",
+      "territorio": "Brasil",
+      "periodo": "2024",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "homicidios_registrados",
@@ -175,7 +240,13 @@
         "Município conforme base"
       ],
       "fonte": "Atlas da Violência / Ipea",
-      "url": "https://www.ipea.gov.br/atlasviolencia/"
+      "url": "https://www.ipea.gov.br/atlasviolencia/",
+      "territorio": "Brasil",
+      "periodo": "2024",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "taxa_homicidios",
@@ -190,7 +261,13 @@
         "Município conforme base"
       ],
       "fonte": "Atlas da Violência / Ipea",
-      "url": "https://www.ipea.gov.br/atlasviolencia/"
+      "url": "https://www.ipea.gov.br/atlasviolencia/",
+      "territorio": "Brasil",
+      "periodo": "2024",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "taxa_homicidios_estimada",
@@ -203,7 +280,13 @@
         "Brasil"
       ],
       "fonte": "Atlas da Violência / Ipea",
-      "url": "https://www.ipea.gov.br/atlasviolencia/"
+      "url": "https://www.ipea.gov.br/atlasviolencia/",
+      "territorio": "Brasil",
+      "periodo": "2024",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "siconfi",
@@ -218,7 +301,12 @@
       ],
       "fonte": "Tesouro Nacional / Siconfi",
       "url": "https://www.tesourotransparente.gov.br/consultas/consultas-siconfi/siconfi-api-de-dados-abertos",
-      "observacao": "RREO, RGF, DCA, MSC e cadastro de entes; interpretação depende do demonstrativo e período."
+      "observacao": "RREO, RGF, DCA, MSC e cadastro de entes; interpretação depende do demonstrativo e período.",
+      "territorio": "Brasil",
+      "periodo": "conforme demonstrativo",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte"
     },
     {
       "id": "cambio_usd",
@@ -232,7 +320,13 @@
       ],
       "fonte": "Banco Central do Brasil / SGS",
       "url": "https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes",
-      "serie": "1"
+      "serie": "1",
+      "territorio": "Brasil",
+      "periodo": "último dado disponível",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "reservas_internacionais",
@@ -246,7 +340,13 @@
       ],
       "fonte": "Banco Central do Brasil / SGS",
       "url": "https://www.bcb.gov.br/estatisticas",
-      "serie": "13621"
+      "serie": "13621",
+      "territorio": "Brasil",
+      "periodo": "último dado disponível",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "resultado_primario_pib",
@@ -260,7 +360,13 @@
       ],
       "fonte": "Banco Central do Brasil / SGS",
       "url": "https://www.bcb.gov.br/estatisticas",
-      "serie": "5793"
+      "serie": "5793",
+      "territorio": "Brasil",
+      "periodo": "último dado disponível",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "juros_nominais_pib",
@@ -274,7 +380,13 @@
       ],
       "fonte": "Banco Central do Brasil / SGS",
       "url": "https://www.bcb.gov.br/estatisticas",
-      "serie": "5760"
+      "serie": "5760",
+      "territorio": "Brasil",
+      "periodo": "último dado disponível",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "resultado_nominal_pib",
@@ -288,7 +400,13 @@
       ],
       "fonte": "Banco Central do Brasil / SGS",
       "url": "https://www.bcb.gov.br/estatisticas",
-      "serie": "5727"
+      "serie": "5727",
+      "territorio": "Brasil",
+      "periodo": "último dado disponível",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "conta_corrente_pib",
@@ -302,7 +420,13 @@
       ],
       "fonte": "Banco Central do Brasil / SGS",
       "url": "https://www.bcb.gov.br/estatisticas",
-      "serie": "23079"
+      "serie": "23079",
+      "territorio": "Brasil",
+      "periodo": "último dado disponível",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "pib_valor_corrente_2025",
@@ -316,7 +440,12 @@
       ],
       "fonte": "IBGE",
       "url": "https://www.ibge.gov.br/estatisticas/economicas/contas-nacionais.html",
-      "observacao": "Último ano anual fechado; em 2026 o acompanhamento corrente usa as divulgações trimestrais."
+      "observacao": "Último ano anual fechado; em 2026 o acompanhamento corrente usa as divulgações trimestrais.",
+      "territorio": "Brasil",
+      "periodo": "2025",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte"
     },
     {
       "id": "pib_per_capita_2025",
@@ -329,7 +458,13 @@
         "Brasil"
       ],
       "fonte": "IBGE",
-      "url": "https://www.ibge.gov.br/estatisticas/economicas/contas-nacionais.html"
+      "url": "https://www.ibge.gov.br/estatisticas/economicas/contas-nacionais.html",
+      "territorio": "Brasil",
+      "periodo": "2025",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "bolsa_familia_repasse_set_2026",
@@ -343,7 +478,12 @@
       ],
       "fonte": "MDS",
       "url": "https://cecad.cidadania.gov.br/",
-      "observacao": "Folha de pagamento do Programa Bolsa Família."
+      "observacao": "Folha de pagamento do Programa Bolsa Família.",
+      "territorio": "Brasil",
+      "periodo": "set/2026",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte"
     },
     {
       "id": "bolsa_familia_acumulado_2026",
@@ -356,7 +496,13 @@
         "Brasil"
       ],
       "fonte": "MDS",
-      "url": "https://cecad.cidadania.gov.br/"
+      "url": "https://cecad.cidadania.gov.br/",
+      "territorio": "Brasil",
+      "periodo": "jan–set/2026",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "bolsa_familia_medio_set_2026",
@@ -369,7 +515,13 @@
         "Brasil"
       ],
       "fonte": "MDS",
-      "url": "https://cecad.cidadania.gov.br/"
+      "url": "https://cecad.cidadania.gov.br/",
+      "territorio": "Brasil",
+      "periodo": "set/2026",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte",
+      "observacao": "Consultar a metodologia da fonte primária."
     },
     {
       "id": "inep_dotacao_2025",
@@ -383,7 +535,12 @@
       ],
       "fonte": "Inep / Tesouro Gerencial",
       "url": "https://www.gov.br/inep/",
-      "observacao": "Não representa o gasto total do Brasil em educação; é a execução orçamentária do Inep."
+      "observacao": "Não representa o gasto total do Brasil em educação; é a execução orçamentária do Inep.",
+      "territorio": "Brasil",
+      "periodo": "2025",
+      "atualizado_em": null,
+      "tipo_atualizacao": "publicacao",
+      "periodicidade": "Conforme publicação da fonte"
     }
   ],
   "series": {
@@ -476,6 +633,58 @@
     {
       "termo": "Siconfi",
       "definicao": "Sistema de Informações Contábeis e Fiscais do Setor Público Brasileiro, usado pelo Tesouro Nacional para receber e divulgar informações fiscais e contábeis de estados e municípios."
+    },
+    {
+      "termo": "PIB nominal",
+      "definicao": "Valor dos bens e serviços finais a preços correntes. Não mede isoladamente crescimento real."
+    },
+    {
+      "termo": "PIB real",
+      "definicao": "Variação do volume da produção, descontadas as mudanças de preços."
+    },
+    {
+      "termo": "PIB per capita",
+      "definicao": "PIB dividido pela população de referência da mesma metodologia e ano."
+    },
+    {
+      "termo": "IPCA",
+      "definicao": "Índice de Preços ao Consumidor Amplo do IBGE. O acumulado utiliza composição das variações, não sua soma."
+    },
+    {
+      "termo": "Selic",
+      "definicao": "Taxa de juros do mercado de títulos públicos. A taxa efetiva difere da meta definida pelo Copom."
+    },
+    {
+      "termo": "Desocupação",
+      "definicao": "Pessoas sem trabalho, disponíveis e que procuraram trabalho segundo os critérios da PNAD Contínua."
+    },
+    {
+      "termo": "Trimestre móvel",
+      "definicao": "Período de três meses consecutivos. Períodos mensais consecutivos compartilham dois meses."
+    },
+    {
+      "termo": "Rendimento real",
+      "definicao": "Rendimento corrigido pelo deflator informado pela pesquisa; não confundir com valor nominal."
+    },
+    {
+      "termo": "Estoque",
+      "definicao": "Valor em uma data, como a dívida ao final do mês."
+    },
+    {
+      "termo": "Fluxo",
+      "definicao": "Valor acumulado durante um período, como juros no mês ou em 12 meses."
+    },
+    {
+      "termo": "NFSP",
+      "definicao": "Necessidades de Financiamento do Setor Público. Nas séries apresentadas, déficit positivo e superávit negativo."
+    },
+    {
+      "termo": "Cadastro Único",
+      "definicao": "Registro administrativo de famílias; inscrição não implica recebimento do Bolsa Família."
+    },
+    {
+      "termo": "Homicídios ocultos",
+      "definicao": "Estimativa da fonte para mortes violentas classificadas em outras causas; permanece separada dos registros observados."
     }
   ]
 }

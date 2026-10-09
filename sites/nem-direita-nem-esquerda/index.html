@@ -57,7 +57,7 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 <span class="pill live">Fontes oficiais</span>
 <span class="pill" id="fresh">Atualizando feeds...</span>
 <span class="pill">Sem ranking de governos</span>
-<span class="pill">Versão 2.0</span>
+<span class="pill">Versão 2.0.1</span>
 <span class="pill" id="scope">Brasil</span>
 </div>
 <div class="heroActions">
@@ -124,7 +124,7 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 <div class="card current"><h3>Desemprego</h3><div class="v" id="unemployment">—</div><div class="m" id="unemploymentMeta">IBGE/SIDRA • automático</div><span class="tag2026">Referência informada pela fonte</span></div>
 <div class="card current"><h3>IPCA • 12 meses</h3><div class="v" id="ipca12">—</div><div class="m" id="ipca12Meta">IBGE/SIDRA • automático</div><span class="tag2026">Referência informada pela fonte</span></div>
 <div class="card current"><h3>PIB • trimestre</h3><div class="v" id="pibQoq">—</div><div class="m" id="pibQoqMeta">IBGE/SIDRA • automático</div><span class="tag2026">Referência informada pela fonte</span></div>
-<div class="card current"><h3>Selic efetiva</h3><div class="v" id="selicHome">—</div><div class="m" id="selicHomeMeta">BCB • automático</div><span class="tag2026">Referência informada pela fonte</span></div>
+<div class="card current"><h3>Selic mensal anualizada</h3><div class="v" id="selicHome">—</div><div class="m" id="selicHomeMeta">BCB • automático</div><span class="tag2026">Referência informada pela fonte</span></div>
 <div class="card current"><h3>Dólar • venda</h3><div class="v" id="fxHome">—</div><div class="m" id="fxHomeMeta">BCB • automático</div><span class="tag2026">Referência informada pela fonte</span></div>
 <div class="card current"><h3>Reservas internacionais</h3><div class="v" id="reservesHome">—</div><div class="m" id="reservesHomeMeta">BCB • automático</div><span class="tag2026">Referência informada pela fonte</span></div>
 </div>
@@ -170,7 +170,7 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 <div class="card"><h3>PIB • trimestre</h3><div class="v" id="macroPibQoq">—</div><div class="m" id="macroPibQoqMeta">IBGE/SIDRA</div></div>
 <div class="card"><h3>IPCA • 12 meses</h3><div class="v" id="macroIpca">—</div><div class="m" id="macroIpcaMeta">IBGE/SIDRA</div></div>
 <div class="card"><h3>Desemprego</h3><div class="v" id="macroUnemp">—</div><div class="m" id="macroUnempMeta">IBGE/SIDRA</div></div>
-<div class="card"><h3>Selic efetiva</h3><div class="v" id="macroSelic">—</div><div class="m" id="macroSelicMeta">BCB/SGS</div></div>
+<div class="card"><h3>Selic mensal anualizada</h3><div class="v" id="macroSelic">—</div><div class="m" id="macroSelicMeta">BCB/SGS</div></div>
 <div class="card"><h3>Dólar • venda</h3><div class="v" id="macroFx">—</div><div class="m" id="macroFxMeta">BCB/SGS</div></div>
 <div class="card"><h3>Reservas internacionais</h3><div class="v" id="macroReserves">—</div><div class="m" id="macroReservesMeta">BCB/SGS</div></div>
 <div class="card"><h3>Dívida bruta / PIB</h3><div class="v" id="macroDebt">—</div><div class="m" id="macroDebtMeta">BCB/SGS</div></div>
@@ -196,7 +196,7 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 <section id="economia" class="pane hide">
 <div class="sectionTitle"><div><div class="ey">Economia • 2026</div><h2>Atividade, preços e setores</h2></div><p>Última referência oficial disponível por indicador.</p></div>
 <div class="grid">
-<div class="card annual"><h3>PIB • valor corrente</h3><div class="v">R$ 12,7 tri</div><div class="m">2025 • último ano fechado • IBGE</div></div>
+<div class="card annual"><h3>PIB • valor corrente</h3><div class="v" id="annualGdp">Consultando...</div><div class="m">2025 • último ano fechado • IBGE</div></div>
 <div class="card annual"><h3>PIB per capita</h3><div class="v">R$ 59.687,49</div><div class="m">2025 • IBGE</div></div>
 <div class="card annual"><h3>Agropecuária • valor corrente</h3><div class="v">R$ 775,3 bi</div><div class="m">2025 • IBGE</div></div>
 <div class="card annual"><h3>Indústria • valor corrente</h3><div class="v">R$ 2,6 tri</div><div class="m">2025 • IBGE</div></div>
@@ -205,7 +205,7 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 <div class="card annual"><h3>Consumo do governo</h3><div class="v">R$ 2,4 tri</div><div class="m">2025 • IBGE</div></div>
 <div class="card annual"><h3>Investimento (FBCF)</h3><div class="v">R$ 2,1 tri</div><div class="m">2025 • 16,8% do PIB • IBGE</div></div>
 <div class="card current"><h3>PIB • trimestre</h3><div class="v" id="pibQoqEconomia">+0,5%</div><div class="m" id="pibQoqEconomiaMeta">2º tri/2026 vs. trimestre anterior</div></div>
-<div class="card current"><h3>PIB • 4 trimestres</h3><div class="v">1,9%</div><div class="m">2º tri/2026 • IBGE</div></div>
+<div class="card current"><h3>PIB • 4 trimestres</h3><div class="v" id="fourQuarterGdp">Consultando...</div><div class="m">2º tri/2026 • IBGE</div></div>
 <div class="card current"><h3>IPCA • agosto</h3><div class="v">−0,32%</div><div class="m">ago/2026 • IBGE</div></div>
 <div class="card current"><h3>IPCA • 12 meses</h3><div class="v" id="ipca12b">4,22%</div><div class="m" id="ipca12bMeta">ago/2026 • IBGE</div></div>
 <div class="card current"><h3>IPCA • no ano</h3><div class="v">3,11%</div><div class="m">jan–ago/2026 • IBGE</div></div>
@@ -269,7 +269,7 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 <div class="card current"><h3>Juros nominais • R$ mensal</h3><div class="v" id="fiscalInterestRs">—</div><div class="m" id="fiscalInterestRsMeta">BCB/SGS • fluxo mensal</div></div>
 <div class="card current"><h3>Resultado nominal • R$ mensal</h3><div class="v" id="fiscalNominalRs">—</div><div class="m" id="fiscalNominalRsMeta">BCB/SGS • fluxo mensal</div></div>
 <div class="card current"><h3>Dívida líquida • R$</h3><div class="v" id="fiscalDlspRs">—</div><div class="m" id="fiscalDlspRsMeta">BCB/SGS • estoque</div></div>
-<div class="card current"><h3>Selic efetiva</h3><div class="v" id="selic">—</div><div class="m" id="selicm">BCB/SGS • automático</div></div>
+<div class="card current"><h3>Selic mensal anualizada</h3><div class="v" id="selic">—</div><div class="m" id="selicm">BCB/SGS • automático</div></div>
 <div class="card"><h3>Convenção fiscal</h3><div class="v small">NFSP</div><div class="m">déficit positivo • superávit negativo</div></div>
 </div>
 <div class="panel"><h2>Primário, juros e nominal</h2>
@@ -284,7 +284,7 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 </section>
 
 <section id="educacao" class="pane hide">
-<div class="sectionTitle"><div><div class="ey">Educação • Ideb 2025 publicado em 2026</div><h2>Aprendizagem, fluxo e cobertura</h2></div><p>Último dado oficial disponível • Inep</p></div>
+<div class="sectionTitle"><div><div class="ey">Educação • Ideb 2025 publicado em 2026</div><h2>Aprendizagem, fluxo e cobertura</h2><a href="https://www.gov.br/inep/pt-br/centrais-de-conteudo/noticias/ideb/ideb-avanca-em-todas-as-etapas-da-educacao-basica" target="_blank" rel="noopener">Fonte: publicação do Inep • Ideb e Saeb 2025</a></div><p>Último dado oficial disponível • Inep</p></div>
 <div class="grid">
 <div class="card annual"><h3>Ideb • anos iniciais</h3><div class="v">6,3</div><div class="m">Brasil • todas as redes • 2025</div></div>
 <div class="card annual"><h3>Ideb • anos finais</h3><div class="v">5,3</div><div class="m">Brasil • todas as redes • 2025</div></div>
@@ -363,7 +363,7 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 <div class="panel"><h2>Registrado x estimado</h2><p>Quando a fonte aponta mortes violentas de causa indeterminada, o painel mantém o valor <b>registrado</b> e a estimativa de <b>homicídios ocultos</b> separadamente. Isso evita transformar uma revisão metodológica em aparente melhora ou piora.</p></div>
 </section>
 
-<section id="ciclos" class="pane hide">
+<section id="ciclos" class="pane hide"><div class="panel" id="official-history"></div>
 <div class="panel"><h2>Leitura por ciclos, não apenas por mandatos</h2><p class="muted">Mandatos aparecem como contexto, mas políticas públicas podem produzir efeitos antes ou depois da troca presidencial.</p>
 <div class="timeline">
 <div class="cycle"><b>1985–1994</b><br>Redemocratização, Constituição de 1988, instabilidade inflacionária e transição para o Plano Real.</div>
@@ -420,7 +420,7 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 <div class="panel"><h2>APIs públicas deste portal</h2>
 <table><tr><th>Endpoint</th><th>Uso</th></tr>
 <tr><td><code>/api/bcb?serie=divida</code></td><td>Dívida bruta/PIB normalizada do BCB</td></tr>
-<tr><td><code>/api/bcb?serie=selic</code></td><td>Selic efetiva normalizada do BCB</td></tr>
+<tr><td><code>/api/bcb?serie=selic</code></td><td>Selic mensal anualizada normalizada do BCB</td></tr>
 <tr><td><code>/api/bcb?serie=cambio</code></td><td>Câmbio dólar/venda</td></tr>
 <tr><td><code>/api/bcb?serie=reservas</code></td><td>Reservas internacionais</td></tr>
 <tr><td><code>/api/bcb?serie=primario_pib</code></td><td>Resultado primário acumulado em 12 meses / PIB</td></tr>
@@ -450,8 +450,8 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 </section>
 
 <footer class="footer">
-<div class="status"><i></i><b>Versão 2.0 • portal de pesquisa pública</b></div>
-<p>Nem Direita, Nem Esquerda • Versão 2.0 • Dados oficiais • Metodologia explícita • Sem ranking de governos.</p>
+<div class="status"><i></i><b>Versão 2.0.1 • portal de pesquisa pública</b></div>
+<p>Nem Direita, Nem Esquerda • Versão 2.0.1 • Dados oficiais • Metodologia explícita • Sem ranking de governos.</p>
 <div class="footlinks"><a href="./metodologia.html">Metodologia</a><a href="./api-docs.html">API</a><a href="./fontes.json">Catálogo de fontes</a><a href="https://www.ibge.gov.br/" target="_blank" rel="noopener">IBGE</a><a href="https://www.bcb.gov.br/" target="_blank" rel="noopener">BCB</a><a href="https://www.gov.br/inep/" target="_blank" rel="noopener">Inep</a><a href="https://www.ipea.gov.br/atlasviolencia/" target="_blank" rel="noopener">Atlas da Violência</a></div>
 </footer>
 </main>
@@ -524,7 +524,7 @@ async function applyTerritory(){
     territoryPopulation.textContent=fmtPop(d.population.value);
     territoryPopulationMeta.textContent=(d.population.period||'último período')+' • IBGE/SIDRA';
     if(type==='br'){population.textContent=(d.population.value/1e6).toLocaleString('pt-BR',{maximumFractionDigits:1})+' mi';populationm.textContent=(d.population.period||'último período')+' • IBGE/SIDRA'}
-  }else{territoryPopulation.textContent='indisponível';territoryPopulationMeta.textContent='fonte oficial não respondeu'}
+  }else{territoryPopulation.textContent='indisponível';territoryPopulationMeta.textContent='Fonte temporariamente indisponível.';if(type==='br'){population.textContent='—';populationm.textContent='Fonte temporariamente indisponível.'}}
   if(d&&d.gdp&&d.gdp.value!=null){
     territoryGdp.textContent=fmtMoney(d.gdp.value);
     territoryGdpMeta.textContent=(d.gdp.period||'último ano')+' • IBGE/SIDRA';
@@ -610,7 +610,7 @@ async function loadIBGE(){
     if(document.getElementById('unemployment2'))unemployment2.textContent=v;
     if(document.getElementById('unemploymentMeta'))unemploymentMeta.textContent=(d.periodo||'último período')+' • IBGE/SIDRA';
     if(document.getElementById('unemployment2Meta'))unemployment2Meta.textContent=(d.periodo||'último período')+' • IBGE/SIDRA';
-  }catch(e){}
+  }catch(e){for(const id of ['unemployment','unemployment2']){document.getElementById(id).textContent='—';document.getElementById(id+'Meta').textContent='Fonte temporariamente indisponível.'}}
   try{
     const d=await get('ipca12m');
     const v=Number(d.valor).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+'%';
@@ -618,14 +618,14 @@ async function loadIBGE(){
     if(document.getElementById('ipca12b'))ipca12b.textContent=v;
     if(document.getElementById('ipca12Meta'))ipca12Meta.textContent=(d.periodo||'último mês')+' • IBGE/SIDRA';
     if(document.getElementById('ipca12bMeta'))ipca12bMeta.textContent=(d.periodo||'último mês')+' • IBGE/SIDRA';
-  }catch(e){}
+  }catch(e){for(const id of ['ipca12','ipca12b']){document.getElementById(id).textContent='—';document.getElementById(id+'Meta').textContent='Fonte temporariamente indisponível.'}}
   try{
     const d=await get('pib_trimestre');
     const n=Number(d.valor),v=(n>=0?'+':'')+n.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1})+'%';
     if(document.getElementById('pibQoq'))pibQoq.textContent=v;
     pibQoqEconomia.textContent=v;pibQoqEconomiaMeta.textContent=d.periodo+' • IBGE/SIDRA';
     if(document.getElementById('pibQoqMeta'))pibQoqMeta.textContent=(d.periodo||'último trimestre')+' • vs. trimestre anterior • IBGE/SIDRA';
-  }catch(e){}
+  }catch(e){for(const id of ['pibQoq','pibQoqEconomia']){document.getElementById(id).textContent='—';document.getElementById(id+'Meta').textContent='Fonte temporariamente indisponível.'}}
 }
 loadIBGE();setInterval(loadIBGE,900000);
 
@@ -636,7 +636,7 @@ async function loadMacro(){
   const moneyMi=v=>{const n=Number(v);if(!Number.isFinite(n))return '—';const abs=Math.abs(n);if(abs>=1e6)return 'R$ '+(n/1e6).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+' tri';if(abs>=1e3)return 'R$ '+(n/1e3).toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2})+' bi';return 'R$ '+n.toLocaleString('pt-BR',{minimumFractionDigits:0,maximumFractionDigits:0})+' mi';};
   const signed=(v,d=1)=>{const n=Number(v);return (n>0?'+':'')+n.toLocaleString('pt-BR',{minimumFractionDigits:d,maximumFractionDigits:d})+'%'};
   const set=(id,val,meta)=>{const el=document.getElementById(id),m=document.getElementById(id+'Meta');if(el)el.textContent=val;if(m)m.textContent=meta};
-  const values={};
+  const values={},references={};
   try{const d=await ibge('pib_trimestre');values.pib=Number(d.valor);set('macroPibQoq',signed(d.valor),'IBGE/SIDRA • '+(d.periodo||'último trimestre'))}catch(e){}
   try{const d=await ibge('ipca12m');values.ipca=Number(d.valor);set('macroIpca',pct(d.valor,2),'IBGE/SIDRA • '+(d.periodo||'último mês'))}catch(e){}
   try{const d=await ibge('desemprego');values.unemp=Number(d.valor);set('macroUnemp',pct(d.valor),'IBGE/SIDRA • '+(d.periodo||'último período'))}catch(e){}
@@ -654,13 +654,13 @@ async function loadMacro(){
     ['nominal_rs','fiscalNominalRs',v=>moneyMi(String(v).replace(',','.'))],
     ['dlsp_rs','fiscalDlspRs',v=>moneyMi(String(v).replace(',','.'))]
   ];
-  for(const [k,id,fmt] of specs){
+  await Promise.allSettled(specs.map(async ([k,id,fmt])=>{
     try{
-      const d=await bcb(k); values[k]=Number(String(d.valor).replace(',','.'));
+      const d=await bcb(k);references[k]=d.data; values[k]=Number(String(d.valor).replace(',','.'));
       const meta=['primario_rs','juros_rs','nominal_rs'].includes(k)?'BCB/SGS • '+(d.data||'último dado')+' • fluxo mensal':['dlsp_rs'].includes(k)?'BCB/SGS • '+(d.data||'último dado')+' • estoque':'BCB/SGS • '+(d.data||'último dado');
       set(id,fmt(d.valor),meta);
-    }catch(e){}
-  }
+    }catch(e){set(id,'—','Fonte temporariamente indisponível.');}
+  }));
   const txt=[];
   if(Number.isFinite(values.pib))txt.push(values.pib>=0?'atividade em expansão trimestral':'atividade em contração trimestral');
   if(Number.isFinite(values.unemp))txt.push('desemprego em '+values.unemp.toLocaleString('pt-BR',{maximumFractionDigits:1})+'%');
@@ -668,12 +668,12 @@ async function loadMacro(){
   if(Number.isFinite(values.divida))txt.push('dívida bruta em '+values.divida.toLocaleString('pt-BR',{maximumFractionDigits:1})+'% do PIB');
   if(Number.isFinite(values.conta_corrente_pib))txt.push('conta corrente em '+values.conta_corrente_pib.toLocaleString('pt-BR',{maximumFractionDigits:2})+'% do PIB');
   try{
-  if(document.getElementById('selicHome')&&Number.isFinite(values.selic)){selicHome.textContent=pct(values.selic,2);selicHomeMeta.textContent='BCB/SGS • automático'}
-  if(document.getElementById('fxHome')&&Number.isFinite(values.cambio)){fxHome.textContent='R$ '+values.cambio.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});fxHomeMeta.textContent='BCB/SGS • automático'}
-  if(document.getElementById('reservesHome')&&Number.isFinite(values.reservas)){reservesHome.textContent='US$ '+(values.reservas/1000).toLocaleString('pt-BR',{maximumFractionDigits:1})+' bi';reservesHomeMeta.textContent='BCB/SGS • automático'}
+  if(document.getElementById('selicHome')&&Number.isFinite(values.selic)){selicHome.textContent=pct(values.selic,2);selicHomeMeta.textContent='BCB/SGS • '+references.selic}
+  if(document.getElementById('fxHome')&&Number.isFinite(values.cambio)){fxHome.textContent='R$ '+values.cambio.toLocaleString('pt-BR',{minimumFractionDigits:2,maximumFractionDigits:2});fxHomeMeta.textContent='BCB/SGS • '+references.cambio}
+  if(document.getElementById('reservesHome')&&Number.isFinite(values.reservas)){reservesHome.textContent='US$ '+(values.reservas/1000).toLocaleString('pt-BR',{maximumFractionDigits:1})+' bi';reservesHomeMeta.textContent='BCB/SGS • '+references.reservas}
 }catch(e){}
   try{
-  const fv=(id,key)=>{const el=document.getElementById(id),m=document.getElementById(id+'Meta');if(el&&Number.isFinite(values[key]))el.textContent=pct(values[key],2);if(m&&Number.isFinite(values[key]))m.textContent='BCB/SGS • automático';};
+  const fv=(id,key)=>{const el=document.getElementById(id),m=document.getElementById(id+'Meta');if(el&&Number.isFinite(values[key]))el.textContent=pct(values[key],2);if(m&&Number.isFinite(values[key]))m.textContent='BCB/SGS • '+references[key];};
   fv('fiscalPrimary','primario_pib');fv('fiscalInterest','juros_pib');fv('fiscalNominal','nominal_pib');
 }catch(e){}
   const el=document.getElementById('macroRead');if(el)el.textContent=txt.length?txt.join(' • '):'Dados macro temporariamente indisponíveis';
@@ -697,6 +697,7 @@ async function loadPortalData(){
     portalData=await r.json();
     renderCatalog();
     renderGlossary();
+    await synchronizeIndicators();
     const params=new URLSearchParams(location.search);
     if(params.get('q')){q.value=params.get('q');searchPortal()}
   }catch(e){
@@ -738,7 +739,8 @@ downloadCsv.onclick=()=>{
 copyLink.onclick=async()=>{
   try{await navigator.clipboard.writeText(location.href);copyLink.textContent='Link copiado';setTimeout(()=>copyLink.textContent='Copiar link da pesquisa',1600)}catch(e){}
 };
-loadPortalData();
+window.addEventListener('load',loadPortalData);
 if("serviceWorker" in navigator){window.addEventListener("load",()=>navigator.serviceWorker.register("./sw.js").catch(()=>{}))}
 </script>
+<script src="./indicadores.js"></script>
 </body></html>

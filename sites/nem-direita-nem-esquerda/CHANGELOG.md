@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.1 — 2026-10-09 — homologação pendente
+- Corrige sintaxe da API BCB e declara runtime ES modules no diretório publicado.
+- Acrescenta séries SIDRA, conversões testadas, histórico IPCA e trabalho estadual sem estimativa municipal.
+- Consulta macro BCB em paralelo, com referência preservada e falhas visíveis.
+- Busca territorial, exportação CSV/JSON do catálogo consultado e consulta RREO.
+- Atualiza glossário, documentação, fontes e versão do cache PWA.
+- Não certifica DNS, SSL ou cobertura territorial ainda não implementada.
+
 ## 1.9 — 2026-10-08 — candidata de publicação
 - Detalha Economia, Trabalho, Fiscal e Educação com maior contexto e referências de 2026.
 - Adiciona valores monetários em R$ para PIB, componentes econômicos, contas fiscais e proteção social.

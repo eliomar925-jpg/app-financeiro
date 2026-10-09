@@ -44,3 +44,19 @@ test('HTML contains unique IDs, valid script, associated form labels and stable 
  for(const id of ['q','tema','level','uf','mun'])assert.ok(html.includes(`for="${id}"`));
  assert.ok(html.includes('rel="canonical" href="https://nem-direita-nem-esquerda-brasil.vercel.app/"'));
 });
+test('Annual GDP only sums four quarters from a complete year',async()=>{
+ const rows=[{},...['202501','202502','202503','202504','202601','202602'].map(D3C=>({D3C,D3N:D3C,V:'100'}))];
+ const r=await call(ibge,{serie:'pib_anual_recente'},async()=>response(rows));assert.equal(r.body.periodo,'2025');assert.equal(r.body.valor,400000000);assert.equal(r.body.unidade,'R$');
+});
+test('State labor uses state geography and does not synthesize municipal observations',async()=>{
+ let requested;
+ const r=await call(ibge,{serie:'rendimento',level:'uf',id:'29'},async u=>{requested=u;return response([{}, {V:'2563',D3N:'2º trimestre 2026',D3C:'202602',MN:'Reais'}])});assert.ok(requested.includes('/n3/29/'));assert.equal(r.body.valor,2563);assert.equal(r.body.unidade,'R$');
+ const m=await call(ibge,{serie:'rendimento',level:'mun',id:'2927408'},()=>{throw Error('must not fetch')});assert.equal(m.body.valor,null);assert.equal(m.body.status,'nao_disponivel');
+});
+test('Occupied population converts thousand people to people',async()=>{
+ const r=await call(ibge,{serie:'ocupados'},async()=>response([{}, {V:'103477',D3N:'jun-jul-ago 2026',D3C:'202608',MN:'Mil pessoas'}]));assert.equal(r.body.valor,103477000);
+});
+
+test('Invalid series and malformed municipality are rejected before availability checks',async()=>{
+ for(const query of [{serie:'constructor',level:'mun',id:'2927408'},{serie:'rendimento',level:'mun',id:'29'}]){const r=await call(ibge,query,()=>{throw Error('must not fetch')});assert.equal(r.code,400);}
+});

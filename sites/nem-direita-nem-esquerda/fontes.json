@@ -1,6 +1,6 @@
 {
-  "versao": "1.8",
-  "atualizado_em": "2026-10-07",
+  "versao": "2.0.1",
+  "atualizado_em": "2026-10-09",
   "fontes": [
     {
       "id": "ibge",
@@ -51,7 +51,7 @@
         "Censo Escolar"
       ],
       "tipo": "arquivos, painéis e dados abertos",
-      "automatizacao": "média",
+      "automatizacao": "publicação manual no portal",
       "url": "https://www.gov.br/inep/pt-br/acesso-a-informacao/dados-abertos",
       "nota": "Parte das divulgações é publicada em arquivos e painéis, não em API pública estável."
     },
@@ -63,7 +63,7 @@
         "Mortalidade"
       ],
       "tipo": "dados abertos e sistemas tabulares",
-      "automatizacao": "média",
+      "automatizacao": "publicação manual no portal",
       "url": "https://datasus.saude.gov.br/",
       "nota": "A disponibilidade e forma de consulta variam por sistema e indicador."
     },
@@ -75,7 +75,7 @@
         "Homicídios"
       ],
       "tipo": "relatórios e bases",
-      "automatizacao": "média",
+      "automatizacao": "publicação manual no portal",
       "url": "https://www.ipea.gov.br/atlasviolencia/",
       "nota": "O portal preserva registrado e estimado como medidas distintas."
     },
@@ -87,7 +87,7 @@
         "Benefícios"
       ],
       "tipo": "dados abertos e painéis",
-      "automatizacao": "média",
+      "automatizacao": "publicação manual no portal",
       "url": "https://www.gov.br/mds/"
     }
   ]
