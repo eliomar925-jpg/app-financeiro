@@ -1,7 +1,7 @@
 {
   "meta": {
     "projeto": "Nem Direita, Nem Esquerda",
-    "versao": "2.0.1",
+    "versao": "2.0.2",
     "gerado_em": "2026-10-09",
     "aviso": "Catálogo público de referência. Séries oficiais podem ser revisadas; consulte a fonte primária indicada em cada indicador."
   },
@@ -448,11 +448,11 @@
       "periodicidade": "Conforme publicação da fonte"
     },
     {
-      "id": "pib_per_capita_2025",
+      "id": "pib_per_capita_ibge_2023",
       "tema": "Economia",
       "nome": "PIB per capita",
-      "valor": "R$ 59.687,49",
-      "referencia": "2025",
+      "valor": "R$ 51.694",
+      "referencia": "2023",
       "unidade": "R$ por habitante",
       "abrangencia": [
         "Brasil"
@@ -460,11 +460,11 @@
       "fonte": "IBGE",
       "url": "https://www.ibge.gov.br/estatisticas/economicas/contas-nacionais.html",
       "territorio": "Brasil",
-      "periodo": "2025",
+      "periodo": "2023",
       "atualizado_em": null,
       "tipo_atualizacao": "publicacao",
       "periodicidade": "Conforme publicação da fonte",
-      "observacao": "Consultar a metodologia da fonte primária."
+      "observacao": "Último dado oficial disponível na série anual consultada do IBGE/SIDRA; não representa referência de 2026."
     },
     {
       "id": "bolsa_familia_repasse_set_2026",

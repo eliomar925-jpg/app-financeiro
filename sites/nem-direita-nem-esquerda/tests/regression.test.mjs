@@ -57,6 +57,15 @@ test('Occupied population converts thousand people to people',async()=>{
  const r=await call(ibge,{serie:'ocupados'},async()=>response([{}, {V:'103477',D3N:'jun-jul-ago 2026',D3C:'202608',MN:'Mil pessoas'}]));assert.equal(r.body.valor,103477000);
 });
 
+test('Per-capita GDP catalog does not relabel the latest official 2023 series as 2025/2026',()=>{
+ const data=JSON.parse(fs.readFileSync(new URL('../dados.json',import.meta.url),'utf8'));
+ const item=data.indicadores.find(x=>x.id==='pib_per_capita_ibge_2023');
+ assert.ok(item);assert.equal(item.periodo,'2023');assert.equal(item.referencia,'2023');
+ const html=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
+ assert.match(html,/R\$ 51\.694[\s\S]*?Último dado oficial disponível — 2023/);
+ assert.doesNotMatch(html,/R\$ 59\.687,49/);
+});
+
 test('Invalid series and malformed municipality are rejected before availability checks',async()=>{
  for(const query of [{serie:'constructor',level:'mun',id:'2927408'},{serie:'rendimento',level:'mun',id:'29'}]){const r=await call(ibge,query,()=>{throw Error('must not fetch')});assert.equal(r.code,400);}
 });

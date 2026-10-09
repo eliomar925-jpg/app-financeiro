@@ -52,7 +52,7 @@ A versão 1.9 consolida o portal para publicação pública: foco em 2026, paine
 
 A publicação é automática pela integração Git → Vercel. O status de deploy deve estar em `success` no commit final antes de considerar a release concluída.
 
-## Versão 2.0.1 — homologação em andamento (09/10/2026)
+## Versão 2.0.2 — correção de referência e homologação em andamento (09/10/2026)
 
 Preserva identidade visual v2.0. Acrescenta séries SIDRA, consulta estadual de trabalho, histórico IPCA, consulta RREO, exportação do catálogo consultado e busca territorial.
 
@@ -61,3 +61,6 @@ Execute `npm test` neste diretório. O package.json local declara ES modules par
 Domínio pretendido: https://www.nemdireitaenemesquerda.com.br. Manter canonical Vercel até validar DNS e HTTPS. DNS consultado: Registro.br autoritativo, raiz sem A e www inexistente. A integração Vercel não concedeu acesso aos logs (403); as cinco APIs públicas retornaram FUNCTION_INVOCATION_FAILED antes desta revisão. A publicação não está homologada.
 
 Não confundir cobertura disponível na fonte com cobertura implementada no portal. Educação, Saúde, Social e Violência ainda precisam de carga territorial e auditoria completa dos valores editoriais.
+
+
+O PIB per capita anual do catálogo usa a última referência oficial disponível na série consultada (2023); o portal a identifica como dado de 2023, nunca como valor corrente de 2025/2026.

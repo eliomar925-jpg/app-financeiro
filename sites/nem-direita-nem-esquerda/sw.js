@@ -1,4 +1,4 @@
-const CACHE='ndne-v2.0.1';
+const CACHE='ndne-v2.0.2';
 const STATIC=['./indicadores.js','./','./index.html','./dados.json','./fontes.json','./manifest.webmanifest','./metodologia.html','./api-docs.html'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(CACHE).then(c=>c.addAll(STATIC)).then(()=>self.skipWaiting()));});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k.startsWith('ndne-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim()));});

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2 — 2026-10-09
+- Corrige a referência do PIB per capita para o último dado anual disponível da série oficial consultada (2023), sem rotulá-lo como 2025 ou 2026.
+- Alinha catálogo, painel, testes de regressão e versão do cache offline.
+
 ## 2.0.1 — 2026-10-09 — homologação pendente
 - Corrige sintaxe da API BCB e declara runtime ES modules no diretório publicado.
 - Acrescenta séries SIDRA, conversões testadas, histórico IPCA e trabalho estadual sem estimativa municipal.
