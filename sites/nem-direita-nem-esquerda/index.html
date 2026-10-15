@@ -43,10 +43,57 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 @media(max-width:600px){.wrap{padding:16px}.heroShell{padding:24px 20px 22px;border-radius:18px}.heroShell:before{width:230px;height:230px;right:-90px;bottom:-100px}.heroShell:after{width:150px;height:150px;right:45px;bottom:-70px}.grid,.grid3,.source-grid,.territorial,.geo,.freshness{grid-template-columns:1fr}.v{font-size:28px}.tabs{padding:8px}.sectionTitle{display:block}.sectionTitle p{text-align:left;margin-top:6px}}
 
 .field,.card,.panel{min-width:0}.field input,.field select{width:100%;min-width:0;font-size:16px}.panel{overflow-x:auto}.source{overflow-wrap:anywhere}button,a,input,select{touch-action:manipulation}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--bluebr);outline-offset:3px}.btn,.tab{min-height:44px}.table-scroll{overflow-x:auto} @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+/* Lateral do painel: fixa no desktop e vira navegação horizontal em telas menores. */
+.wrap{width:min(1240px,calc(100% - 332px));max-width:1240px;margin:0 24px 0 296px;padding:26px 20px}
+.tabs{position:fixed;top:16px;left:16px;bottom:16px;width:252px;max-height:calc(100vh - 32px);z-index:50;margin:0;padding:16px 12px;display:flex;flex-direction:column;flex-wrap:nowrap;align-items:stretch;gap:8px;overflow-x:hidden;overflow-y:auto;overscroll-behavior:contain;background:rgba(255,255,255,.97);border:1px solid var(--line);border-radius:20px;box-shadow:0 12px 34px rgba(8,36,63,.12);backdrop-filter:blur(16px)}
+.tabs:after{content:none}
+.sidebarBrand{display:grid;grid-template-columns:38px 1fr;column-gap:10px;align-items:center;padding:5px 8px 16px;margin-bottom:3px;border-bottom:1px solid var(--line)}
+.sidebarBrand .flagMini{grid-row:span 2}
+.sidebarBrandName{color:var(--green);font-size:12px;font-weight:900;letter-spacing:.12em}
+.sidebarBrandTag{color:var(--mut);font-size:11px;line-height:1.35}
+.navGroup{display:flex;flex-direction:column;gap:3px}
+.navGroupLabel{padding:12px 9px 5px;color:var(--mut);font-size:10px;font-weight:850;letter-spacing:.12em;text-transform:uppercase}
+.tabs .tab{width:100%;min-height:42px;padding:9px 12px;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--navy2);text-align:left;font-size:13px;font-weight:700;line-height:1.25;cursor:pointer}
+.tabs .tab:hover{background:#f3f7f4;border-color:#e0e9e3}
+.tabs .tab.on{background:linear-gradient(115deg,var(--green),var(--bluebr));border-color:transparent;color:#fff;box-shadow:0 6px 14px rgba(15,107,79,.16)}
+.sidebarFoot{margin-top:auto;padding:12px 10px 4px;border-top:1px solid var(--line);color:var(--mut);font-size:12px;line-height:1.45}
+@media(max-width:1120px){.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3,.source-grid,.territorial{grid-template-columns:repeat(2,minmax(0,1fr))}.geo{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:900px){.wrap{width:auto;max-width:1240px;margin:0 auto;padding:20px}.tabs{position:sticky;top:0;left:auto;right:auto;bottom:auto;width:100%;max-height:none;height:auto;min-height:0;margin:0;padding:8px 10px;flex-direction:row;flex-wrap:nowrap;align-items:center;gap:7px;border-radius:0 0 14px 14px;overflow-x:auto;overflow-y:hidden;box-shadow:0 8px 22px rgba(8,36,63,.1)}.sidebarBrand,.navGroupLabel,.sidebarFoot{display:none}.navGroup{display:contents}.tabs .tab{flex:0 0 auto;width:auto;min-height:42px;white-space:nowrap;padding:9px 12px}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Dataset","name":"Nem Direita, Nem Esquerda — Brasil em Dados","description":"Portal apartidário de pesquisa com indicadores oficiais brasileiros.","url":"https://nem-direita-nem-esquerda-brasil.vercel.app/","creator":{"@type":"Organization","name":"Nem Direita, Nem Esquerda"},"spatialCoverage":"Brasil"}</script>
 </head>
-<body><a class="skip" href="#pesquisa">Pular para a pesquisa</a><main class="wrap">
+<body><a class="skip" href="#pesquisa">Pular para a pesquisa</a>
+<nav class="tabs" aria-label="Navegação principal do portal">
+  <div class="sidebarBrand">
+    <span class="flagMini" aria-hidden="true"></span>
+    <span class="sidebarBrandName">BRASIL EM DADOS</span>
+    <span class="sidebarBrandTag">Informação pública<br>sem torcida</span>
+  </div>
+  <div class="navGroup">
+    <div class="navGroupLabel">Explore o Brasil</div>
+    <button class="tab on" data-p="geral" aria-pressed="true">Visão geral</button>
+    <button class="tab" data-p="macro">Macro Brasil</button>
+    <button class="tab" data-p="economia">Economia</button>
+    <button class="tab" data-p="trabalho">Trabalho</button>
+    <button class="tab" data-p="fiscal">Fiscal</button>
+    <button class="tab" data-p="educacao">Educação</button>
+    <button class="tab" data-p="saude">Saúde</button>
+    <button class="tab" data-p="social">Social</button>
+    <button class="tab" data-p="violencia">Violência</button>
+  </div>
+  <div class="navGroup">
+    <div class="navGroupLabel">Dados &amp; transparência</div>
+    <button class="tab" data-p="ciclos">Ciclos</button>
+    <button class="tab" data-p="catalogo">Catálogo</button>
+    <button class="tab" data-p="glossario">Glossário</button>
+    <button class="tab" data-p="fontes">Fontes</button>
+    <button class="tab" data-p="downloads">Downloads</button>
+    <button class="tab" data-p="status">Status</button>
+    <button class="tab" data-p="metodo">Metodologia</button>
+  </div>
+  <div class="sidebarFoot">Dados públicos.<br><b>Contexto claro.</b></div>
+</nav>
+<main class="wrap">
 <header class="top heroShell">
 <div class="brasilMark"><span class="flagMini" aria-hidden="true"></span><span class="brasilWord">Brasil em dados</span></div>
 <div class="ey">Informação pública • sem torcida</div>
@@ -57,7 +104,7 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 <span class="pill live">Fontes oficiais</span>
 <span class="pill" id="fresh">Atualizando feeds...</span>
 <span class="pill">Sem ranking de governos</span>
-<span class="pill">Versão 2.0.2</span>
+<span class="pill">Versão 2.0.3</span>
 <span class="pill" id="scope">Brasil</span>
 </div>
 <div class="heroActions">
@@ -95,24 +142,7 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 <p class="m">A disponibilidade varia por indicador. O painel não inventa séries locais quando o órgão oficial não as publica.</p>
 </section>
 
-<nav class="tabs">
-<button class="tab on" data-p="geral">Visão geral</button>
-<button class="tab" data-p="macro">Macro Brasil</button>
-<button class="tab" data-p="economia">Economia</button>
-<button class="tab" data-p="trabalho">Trabalho</button>
-<button class="tab" data-p="fiscal">Fiscal</button>
-<button class="tab" data-p="educacao">Educação</button>
-<button class="tab" data-p="saude">Saúde</button>
-<button class="tab" data-p="social">Social</button>
-<button class="tab" data-p="violencia">Violência</button>
-<button class="tab" data-p="ciclos">Ciclos</button>
-<button class="tab" data-p="catalogo">Catálogo</button>
-<button class="tab" data-p="glossario">Glossário</button>
-<button class="tab" data-p="fontes">Fontes</button>
-<button class="tab" data-p="downloads">Downloads</button>
-<button class="tab" data-p="status">Status</button>
-<button class="tab" data-p="metodo">Metodologia</button>
-</nav>
+
 
 <div class="note"><b>Regra de atualização:</b> “tempo real” significa <b>assim que a fonte oficial publica</b>. Dados mensais, trimestrais, anuais e bienais preservam a periodicidade original. O painel exibe a data de referência sempre que possível.</div>
 
@@ -450,8 +480,8 @@ linear-gradient(180deg,var(--bg),var(--bg2));color:#22302d;font:15px/1.5 Inter,u
 </section>
 
 <footer class="footer">
-<div class="status"><i></i><b>Versão 2.0.2 • portal de pesquisa pública</b></div>
-<p>Nem Direita, Nem Esquerda • Versão 2.0.2 • Dados oficiais • Metodologia explícita • Sem ranking de governos.</p>
+<div class="status"><i></i><b>Versão 2.0.3 • portal de pesquisa pública</b></div>
+<p>Nem Direita, Nem Esquerda • Versão 2.0.3 • Dados oficiais • Metodologia explícita • Sem ranking de governos.</p>
 <div class="footlinks"><a href="./metodologia.html">Metodologia</a><a href="./api-docs.html">API</a><a href="./fontes.json">Catálogo de fontes</a><a href="https://www.ibge.gov.br/" target="_blank" rel="noopener">IBGE</a><a href="https://www.bcb.gov.br/" target="_blank" rel="noopener">BCB</a><a href="https://www.gov.br/inep/" target="_blank" rel="noopener">Inep</a><a href="https://www.ipea.gov.br/atlasviolencia/" target="_blank" rel="noopener">Atlas da Violência</a></div>
 </footer>
 </main>

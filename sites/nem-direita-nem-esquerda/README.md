@@ -1,5 +1,8 @@
 # Nem Direita, Nem Esquerda — Brasil em Dados
 
+## Interface 2.0.3
+A navegação principal fica em painel lateral no desktop e em faixa horizontal rolável em telas menores. O layout preserva as mesmas áreas, indicadores, APIs e fontes oficiais.
+
 Portal público apartidário para pesquisa de indicadores oficiais brasileiros.
 
 ## Objetivo

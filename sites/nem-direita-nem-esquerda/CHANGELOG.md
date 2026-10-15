@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.3 — 2026-10-15
+- Reorganiza a navegação em painel lateral no desktop e faixa horizontal acessível em telas menores.
+- Mantém as áreas do portal, os indicadores, as fontes oficiais, o seletor territorial e as rotas existentes.
+- Atualiza a versão do portal e invalida o cache offline anterior.
+
+
 ## 2.0.2 — 2026-10-09
 - Corrige a referência do PIB per capita para o último dado anual disponível da série oficial consultada (2023), sem rotulá-lo como 2025 ou 2026.
 - Alinha catálogo, painel, testes de regressão e versão do cache offline.
